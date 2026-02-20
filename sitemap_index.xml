@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//androidchity.ru/wp-content/plugins/wordpress-seo/css/main-sitemap.xsl"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
-		<loc>http://androidchity.ru/post-sitemap.xml</loc>
+		<loc>/post-sitemap.xml</loc>
 		<lastmod>2025-03-11T18:49:53+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>http://androidchity.ru/post-sitemap2.xml</loc>
+		<loc>/post-sitemap2.xml</loc>
 		<lastmod>2025-03-11T18:49:53+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>http://androidchity.ru/page-sitemap.xml</loc>
+		<loc>/page-sitemap.xml</loc>
 		<lastmod>2023-12-10T16:28:03+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>http://androidchity.ru/category-sitemap.xml</loc>
+		<loc>/category-sitemap.xml</loc>
 		<lastmod>2025-03-11T18:49:53+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>http://androidchity.ru/author-sitemap.xml</loc>
+		<loc>/author-sitemap.xml</loc>
 		<lastmod>2024-01-08T13:37:10+00:00</lastmod>
 	</sitemap>
 </sitemapindex>

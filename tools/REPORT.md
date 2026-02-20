@@ -1,5 +1,11 @@
 # Отчёт: самодостаточность и ускорение androidchity.ru
 
+## Обновление: убраны абсолютные URL, minify-хвосты
+
+- **http(s)://androidchity.ru** → относительные пути `/` во всех .html, .xml, .css, .js
+- **wp-content/plugins/wordpress-seo** — удалены xml-stylesheet из sitemaps (файл main-sitemap.xsl отсутствует)
+- **wp-content/cache/minify/** — e3f8b.css, d52ed.js, 986c3.js, e311b.js в репо, подключения оставлены (нужны для стилей/скриптов)
+
 ## 1. Инвентаризация ресурсов
 
 - **wp-content ссылок в HTML:** 4010 уникальных путей
