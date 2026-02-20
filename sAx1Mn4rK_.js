@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta name="keywords" content="домен, регистратор, доменные имена, регистрация доменов, domain, idn, whois">
+	<meta content="text/html; charset=utf-8" charset="utf-8" http-equiv="Content-Type">
+
+	<link rel="stylesheet" href="/style.css" type="text/css">
+	<title>
+	Androidchity.ru	</title>
+</head>
+<body>
+
+<noscript><div></div></noscript>
+
+	<div id="content">
+		<div id="header">
+		  <p id="top_info"><br>
+		    <a href="https://i7.ru" rel="nofollow"><img src="/images/i7logo.png" alt="" width="110" height="47" style="border:none"></a></p>
+
+			<div id="logo">
+<h1><a href="http://androidchity.ru">Androidchity.ru</a></h1>
+
+				<p style="margin:0; padding:0">Сайт в процессе разработки</p>
+			</div>
+	  </div>
+
+		<div id="tabs">
+			<ul>
+				<li><a href="https://job.i7.ru" rel="nofollow"><span class="key">IT-работа</span></a></li>
+				<li><a href="https://myssl.ru" rel="nofollow"><span class="key">SSL</span></a></li>
+				<li><a href="https://expired.ru" rel="nofollow"><span class="key">Аукцион</span></a></li>
+			</ul>
+			<div id="search">
+				<form method="get" action="http://yandex.ru/yandsearch" id="search_engine" target="_blank">
+					<p>
+					<input name="text" type="input" class="search" id="keywords" value="" onfocus="document.forms['search_engine'].keywords.value='';">
+						<input type="submit" class="button" value="Искать">
+					</p>
+				</form>
+			</div>
+		</div>
+
+
+
+		<div class="left">
+			<div class="left_articles">
+			  <h2> </h2>
+				<a href="http://www.i7.ru/" rel="nofollow"><img src="/images/logobig.png" alt="i7.RU" width="130" height="146" class="thumbnail" style="border:none; margin-top:6px"></a>
+					<p style="font-size:16px"><strong>Сделать сайт просто как</strong> <span class="redtext">«раз-два-три»!</span></p>
+				<p style="margin-bottom:60px">	<span class="redtext">Раз.</span> Выбрать и <a href="https://i7.ru/domains/#domreg" rel="nofollow">зарегистрировать</a> свободное доменное имя.<br>
+					<span class="redtext">Два.</span> Заказать хостинг, выбрав подходящий тарифный план или заказать установку выделенного сервера.<br>
+				<span class="redtext">Три.</span> Заказать создание сайта у нашего специалиста. Мы можем предложить вам создание сайта любой сложности.</p>
+			</div>
+			<p>
+
+						</p><div class="thirds">
+				<div class="smallboxtop"></div>
+				<div class="smallbox">
+					<p><span class="smallred">Первый шаг</span> вы уже сделали, зарегистрировав доменное имя. Следующими шагами будут заказ хостинга и создание сайта.</p>
+				</div>
+			</div>
+
+			<div class="thirds">
+				<div class="smallboxtop"></div>
+				<div class="smallbox">
+					<p><span class="smallred">Второй шаг</span> - заказ хостинга из предлагаемых тарифных планов. Также вы можете заказать у нас установку выделенного сервера.</p>
+				</div>
+			</div>
+
+			<div class="thirds">
+				<div class="smallboxtop"></div>
+				<div class="smallbox">
+					<p><span class="smallred">Шаг третий</span> - создание сайта. Вы можете заказать сайт любой сложности, связавшись с нашим специалистом.</p>
+				</div>
+			</div>
+	  </div>
+		<div id="right" style="margin-top:24px">
+			<div class="boxtop"></div>
+			<div class="box">
+				<h2 style="margin-bottom:5px; font-size:18px"><img src="/images/magnifier.gif" alt="" width="16" height="16" align="absmiddle"> WHOIS – проверка домена</h2>
+				<form method="get" action="https://whois7.ru" name="zoneform" style="text-align:center">
+
+             <div class="f">
+
+             <input name="q" type="text" style="width:165px; font-size:14px; padding:3px; color: #A72119; font-weight: bold;" value="androidchity.ru">
+			 <input type="submit" value="Проверить" class="button">
+
+			</div>
+
+             </form>
+		  </div>
+			<div class="boxtop"></div>
+			<div class="box">
+				<p><a href="https://expired.ru" target="_blank" rel="nofollow"><img src="/images/dnlogo.gif" alt="Image" width="52" height="62" class="image" title="Image" style="border:none"></a>
+				<span style="font-weight:bold; font-size:18px"><a href="http://expired.ru" target="_blank" rel="nofollow">Expired.ru</a></span><br>
+				  Список освобождающихся доменов в зоне .RU и .РФ, сервис перехвата доменов. Заявка на регистрацию домена подается через максимально возможный пул регистраторов, что значительно увеличивает ваши шансы.<br>
+				  
+				</p>
+				<div class="buttons">
+
+				</div>
+			</div>
+
+			
+
+		</div>
+		<div class="footer">
+		  <p><a href="https://i7.ru/domains/" target="_blank" rel="nofollow">Регистрация доменов</a> · <a href="https://ipaddress.ru" target="_blank" rel="nofollow">Аренда, покупка и продажа IP-адресов</a> · <a href="https://job.i7.ru" target="_blank" rel="nofollow">Job</a> · <a href="https://myssl.ru" target="_blank" rel="nofollow">SSL-сертификаты</a> · <a href="https://expired.ru" target="_blank" rel="nofollow">Освобождающиеся домены</a> · <a href="https://proxyspot.com" target="_blank" rel="nofollow">Прокси</a><br>
+		  Домен зарегистрирован через <a href="https://i7.ru" target="_blank" rel="nofollow">i7.RU</a>. <a href="https://whois7.ru/?q=androidchity.ru" rel="nofollow">Whois</a></p>
+		</div>
+	</div>
+</body>
+
+</html>

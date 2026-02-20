@@ -1,0 +1,138 @@
+/* Принудительное отображение карточек постов на страницах категорий (офлайн-архив) */
+#main .post-cards,
+#main .post-card,
+.content-area .post-cards,
+.content-area .post-card,
+.site-main .post-cards,
+.site-main .post-card,
+body.archive .post-cards,
+body.archive .post-card,
+body.category .post-cards,
+body.category .post-card,
+.post-cards,
+.post-card,
+.w-animate,
+[data-animate-style] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+#main .post-cards,
+.content-area .post-cards,
+.site-main .post-cards,
+body .post-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1rem 1.25rem !important;
+  min-height: 1px !important;
+  overflow: visible !important;
+}
+@media (max-width: 1200px) {
+  #main .post-cards,
+  .content-area .post-cards,
+  .site-main .post-cards,
+  body .post-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 768px) {
+  #main .post-cards,
+  .content-area .post-cards,
+  .site-main .post-cards,
+  body .post-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Видимость ссылок — пагинация и контент */
+.navigation.pagination a,
+.navigation.pagination a.page-numbers,
+.nav-links a,
+a.page-numbers {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+.navigation.pagination a:hover,
+.navigation.pagination a.page-numbers:hover,
+.nav-links a:hover,
+a.page-numbers:hover {
+  color: #004499 !important;
+}
+.post-card__title a,
+.post-card a,
+#main a,
+.content-area a {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+.post-card__title a:hover,
+.post-card a:hover,
+#main a:hover,
+.content-area a:hover {
+  color: #004499 !important;
+}
+
+/* «Вам также может понравиться» — карточки строками (несколько в ряд) */
+#related-posts .post-cards,
+.related-posts .post-cards,
+#related-posts .post-cards--vertical,
+.related-posts .post-cards--vertical,
+#related-posts .post-cards.post-cards--vertical,
+.related-posts .post-cards.post-cards--vertical {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1rem 1.25rem !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+@media (max-width: 1200px) {
+  #related-posts .post-cards,
+  .related-posts .post-cards,
+  #related-posts .post-cards--vertical,
+  .related-posts .post-cards--vertical {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 768px) {
+  #related-posts .post-cards,
+  .related-posts .post-cards,
+  #related-posts .post-cards--vertical,
+  .related-posts .post-cards--vertical {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+#related-posts .post-card,
+.related-posts .post-card,
+#related-posts .post-card--related,
+.related-posts .post-card--related {
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+}/* Карточки на страницах категорий — тоже в сетке */
+.post-cards--small,
+.post-cards--grid,
+.post-cards--vertical {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1rem 1.25rem !important;
+}
+@media (max-width: 1200px) {
+  .post-cards--small,
+  .post-cards--grid,
+  .post-cards--vertical {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 768px) {
+  .post-cards--small,
+  .post-cards--grid,
+  .post-cards--vertical {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+.post-card--small,
+.post-card--grid {
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /engine/
+Sitemap: https://androidchity.ru/sitemap.xml
+Host: https://androidchity.ru/
+Clean-param: url

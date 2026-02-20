@@ -1,0 +1,13 @@
+# Requires apache 2.4
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} !^$
+RewriteRule ^(.*)$ %{REQUEST_URI}%%33F%{QUERY_STRING}? [END,QSD]
+
+<Files *.css*>
+    ForceType text/css
+</Files>
+
+<Files *.js*>
+    ForceType application/javascript
+</Files>

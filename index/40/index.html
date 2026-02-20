@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><ajax><cmd p="title"><![CDATA[Вход на сайт]]></cmd>
+<cmd p="js"><![CDATA[
+sendFrm555=function(){
+	$('#msgL555').html('<div class="myWinLoadS"></div>');
+	_uPostForm('frmLg555',{type:'POST',url:'/index/sub/',error:function(){
+		_uButtonEn('frmLg555',1);
+		$('#msgL555').html('<div class="myWinLoadSF" title="Невозможно выполнить запрос, попробуйте позже"></div>');
+		_uWnd.alert('<div class="myWinError">Невозможно выполнить запрос, попробуйте позже</div>','',{w:250,h:90,tm:3000,pad:'15px'});
+	}});
+}
+]]></cmd>
+<cmd p="content"><![CDATA[<div id="uidLogFormAjx" align="center"><div style="padding:30px 0"><a href="javascript://" onclick="window.open('https://login.uid.me/?site=0android-cheatz&ref='+escape(location.protocol + '//' + ('androidchity.ru' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' )))),'uidLoginWnd','width=580,height=450,resizable=yes,titlebar=yes');return false;" class="login-with uid" title="Войти через uID" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('vkontakte');" class="login-with vkontakte" title="Войти через ВКонтакте" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('ok');" class="login-with ok" title="Войти через Одноклассники" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('facebook');" class="login-with facebook" title="Войти через Facebook" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('yandex');" class="login-with yandex" title="Войти через Яндекс" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('google');" class="login-with google" title="Войти через Google+" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('twitter');" class="login-with twitter" title="Войти через Twitter" rel="nofollow"><i></i></a></div></div>]]></cmd></ajax>
