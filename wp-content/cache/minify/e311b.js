@@ -1,0 +1,1 @@
+/* stub - post entry script */

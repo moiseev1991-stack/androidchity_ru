@@ -1,0 +1,1 @@
+/* stub - category taxonomy script */
