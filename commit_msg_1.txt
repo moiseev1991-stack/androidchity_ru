@@ -1,0 +1,1 @@
+Подготовка под Plesk: относительные ссылки, .htaccess 404, DEPLOY_PLESK.md

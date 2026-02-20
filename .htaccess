@@ -1,4 +1,6 @@
 # Requires apache 2.4
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 
 RewriteCond %{QUERY_STRING} !^$

@@ -20,7 +20,7 @@
 		    <a href="https://i7.ru" rel="nofollow"><img src="/images/i7logo.png" alt="" width="110" height="47" style="border:none"></a></p>
 
 			<div id="logo">
-<h1><a href="http://androidchity.ru">Androidchity.ru</a></h1>
+<h1><a href="">Androidchity.ru</a></h1>
 
 				<p style="margin:0; padding:0">Сайт в процессе разработки</p>
 			</div>

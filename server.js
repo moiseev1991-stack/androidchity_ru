@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
-const ORIGIN = 'https://androidchity.ru';
+const ORIGIN = '';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
