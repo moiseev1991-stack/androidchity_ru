@@ -11,16 +11,21 @@
 
 ## Изображения (wp-content/uploads)
 
-В репозитории уже есть папка `wp-content/uploads/` (4299 файлов за 2023/11, 2023/12 и далее). Git Deploy должен скопировать их в `httpdocs/wp-content/uploads/`.
+В репозитории уже есть папка `wp-content/uploads/` (4299 файлов). Git Deploy должен скопировать их в `httpdocs/wp-content/uploads/`.
 
 **Если картинки не отображаются после Deploy:**
 
-1. Локально в папке проекта: `Compress-Archive -Path "wp-content\uploads\*" -DestinationPath "uploads.zip" -Force`
-2. Plesk → **Files** → перейдите в `httpdocs/wp-content/`
-3. **Upload** → выберите `uploads.zip` → **Extract** (распаковать)
-4. Убедитесь, что появилась структура `uploads/2023/11/`, `uploads/2023/12/` и т.д.
+1. Убедитесь, что папка `wp-content/uploads/` есть в репозитории и попала в httpdocs.
+2. Если нет — локально: `Compress-Archive -Path "wp-content\uploads\*" -DestinationPath "uploads.zip" -Force`
+3. Plesk → **Files** → `httpdocs/wp-content/` → **Upload** → `uploads.zip` → **Extract**
+4. Проверьте: `https://ваш-домен/wp-content/uploads/2023/12/4-38-400x400-1-100x100.jpg` (200 OK).
 
-**Проверка:** `https://ваш-домен/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png` должен возвращать картинку (200 OK).
+**Если сайт в подпапке** (например `https://domain.com/blog/`), пути в HTML нужно исправить:
+```powershell
+$env:BASE_URL="https://ваш-домен"
+node scripts/fix-image-paths.js
+```
+Скрипт заменит `src="/wp-content/` на `src="https://ваш-домен/wp-content/` во всех HTML.
 
 ## Проверка
 
