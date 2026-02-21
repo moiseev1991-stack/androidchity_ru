@@ -42,9 +42,7 @@ body .post-cards {
   body .post-cards {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-}
-
-/* Видимость ссылок — пагинация и контент */
+}/* Видимость ссылок — пагинация и контент */
 .navigation.pagination a,
 .navigation.pagination a.page-numbers,
 .nav-links a,
