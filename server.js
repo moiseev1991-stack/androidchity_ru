@@ -83,7 +83,29 @@ const SIDEBAR_CATEGORIES = [
 ];
 const SIDEBAR_CATEGORIES_HTML = SIDEBAR_CATEGORIES.map(([slug, name]) => '<a href="/category/' + slug + '/">' + name + '</a>').join('');
 const SIDEBAR_HTML = '<aside class="site-sidebar"><div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/download/">Проверка файла на вирусы</a><a href="/register/">Регистрация</a></div><div class="widget widget--categories"><h3>Категории</h3>' + SIDEBAR_CATEGORIES_HTML + '</div></aside>';
-const LAYOUT_SIDEBAR_CSS = '<style id="layout-sidebar-style">.home-nav{background:#f0f0f0;padding:10px 20px;border-bottom:1px solid #ddd}.home-nav a{color:#333;text-decoration:none;margin-right:16px;font-size:14px}.home-nav a:hover{color:#00681f}.layout-with-sidebar{display:flex;max-width:1200px;margin:0 auto;padding:20px;gap:24px}.site-sidebar{width:220px;flex-shrink:0}.site-sidebar .widget{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:20px}.site-sidebar .widget h3{margin:0 0 12px;font-size:1rem;color:#00681f;border-bottom:1px solid #ddd;padding-bottom:8px}.site-sidebar .widget a{display:block;color:#0693e3;text-decoration:none;padding:6px 0;font-size:14px}.site-sidebar .widget a:hover{color:#0073aa;text-decoration:underline}.site-sidebar .widget--categories{max-height:70vh;overflow-y:auto}.layout-with-sidebar .home-main{flex:1;min-width:0}@media(max-width:768px){.layout-with-sidebar{flex-direction:column}.site-sidebar{width:100%}}</style>';
+const LAYOUT_SIDEBAR_CSS = '<style id="layout-sidebar-style">.home-nav{background:#f0f0f0;padding:10px 20px;border-bottom:1px solid #ddd}.home-nav a{color:#333;text-decoration:none;margin-right:16px;font-size:14px}.home-nav a:hover{color:#00681f}.layout-with-sidebar{display:flex;max-width:1200px;margin:0 auto;padding:20px;gap:24px}.site-sidebar{width:220px;flex-shrink:0}.site-sidebar .widget{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:20px}.site-sidebar .widget h3{margin:0 0 12px;font-size:1rem;color:#00681f;border-bottom:1px solid #ddd;padding-bottom:8px}.site-sidebar .widget a{display:block;color:#0693e3;text-decoration:none;padding:6px 0;font-size:14px}.site-sidebar .widget a:hover{color:#0073aa;text-decoration:underline}.site-sidebar .widget--categories{max-height:70vh;overflow-y:auto}.layout-with-sidebar .home-main{flex:1;min-width:0}@media(max-width:768px){.layout-with-sidebar{flex-direction:column;padding:10px}.site-sidebar{display:none}}</style>';
+
+/** Mobile menu CSS, HTML and JS */
+const MOBILE_MENU_CSS = '<style id="mobile-menu-style">.mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998}.mobile-menu-overlay.active{display:block}.mobile-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#fff;z-index:9999;overflow-y:auto;transition:left 0.3s ease;box-shadow:2px 0 10px rgba(0,0,0,0.2)}.mobile-menu.active{left:0}.mobile-menu-header{background:#00681f;color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.mobile-menu-header h3{margin:0;font-size:18px}.mobile-menu-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:0;line-height:1}.mobile-menu .widget{padding:16px;border-bottom:1px solid #e0e0e0}.mobile-menu .widget h3{margin:0 0 12px;font-size:14px;color:#00681f;text-transform:uppercase;font-weight:bold}.mobile-menu .widget a{display:block;color:#333;text-decoration:none;padding:10px 0;font-size:15px;border-bottom:1px solid #f0f0f0}.mobile-menu .widget a:last-child{border-bottom:none}.mobile-menu .widget a:hover{color:#00681f}.humburger{cursor:pointer}</style>';
+
+const MOBILE_MENU_HTML = `<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu">
+<div class="mobile-menu-header"><h3>Меню</h3><button class="mobile-menu-close">&times;</button></div>
+<div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/download/">Проверка файла на вирусы</a><a href="/register/">Регистрация</a></div>
+<div class="widget"><h3>Категории</h3>${SIDEBAR_CATEGORIES.map(([slug, name]) => '<a href="/category/' + slug + '/">' + name + '</a>').join('')}</div>
+</div>`;
+
+const MOBILE_MENU_JS = '<script id="mobile-menu-js">(function(){var h=document.querySelector(".humburger,.js-humburger"),m=document.querySelector(".mobile-menu"),o=document.querySelector(".mobile-menu-overlay"),c=document.querySelector(".mobile-menu-close");function open(){m.classList.add("active");o.classList.add("active");document.body.style.overflow="hidden"}function close(){m.classList.remove("active");o.classList.remove("active");document.body.style.overflow=""}if(h)h.addEventListener("click",open);if(o)o.addEventListener("click",close);if(c)c.addEventListener("click",close)})();</script>';
+
+/** Inject mobile menu into HTML */
+function injectMobileMenu(html) {
+  if (!html || typeof html !== 'string') return html;
+  if (html.includes('id="mobile-menu-style"')) return html;
+  let out = html;
+  out = out.replace(/<\/head\s*>/i, MOBILE_MENU_CSS + '</head>');
+  out = out.replace(/<\/body\s*>/i, MOBILE_MENU_HTML + MOBILE_MENU_JS + '</body>');
+  return out;
+}
 
 function injectGlobalNavAndSidebar(html, urlPath) {
   if (!html || typeof html !== 'string') return html;
@@ -183,6 +205,7 @@ function createHandler(port) {
           body = blockPushNotifications(body);
           body = injectGlobalNavAndSidebar(body, urlPath);
           body = ensurePostCardsVisible(body);
+          body = injectMobileMenu(body);
           res.setHeader('Content-Type', contentType);
           res.end(body);
         } catch (e) {

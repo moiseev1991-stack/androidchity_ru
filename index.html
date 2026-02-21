@@ -35,7 +35,77 @@
     .category-card:hover { background: #e8f4fc; border-color: #0693e3; color: #0073aa; }
     .recommended-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     @media (max-width: 900px) { .recommended-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .layout-with-sidebar { flex-direction: column; } .site-sidebar { width: 100%; } .recommended-grid { grid-template-columns: 1fr; } .categories-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { 
+      .layout-with-sidebar { flex-direction: column; padding: 10px; } 
+      .site-sidebar { display: none; } 
+      .recommended-grid { grid-template-columns: 1fr; } 
+      .categories-grid { grid-template-columns: repeat(2, 1fr); } 
+    }
+    /* Mobile menu overlay */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+    }
+    .mobile-menu-overlay.active { display: block; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100%;
+      background: #fff;
+      z-index: 9999;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+    .mobile-menu.active { left: 0; }
+    .mobile-menu-header {
+      background: #00681f;
+      color: #fff;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-menu-header h3 { margin: 0; font-size: 18px; }
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+    .mobile-menu .widget {
+      padding: 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .mobile-menu .widget h3 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #00681f;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .mobile-menu .widget a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 15px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .mobile-menu .widget a:last-child { border-bottom: none; }
+    .mobile-menu .widget a:hover { color: #00681f; }
+    .humburger { cursor: pointer; }
     .post-card-mini { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
     .post-card-mini .thumb { display: block; aspect-ratio: 1; background: #eee; }
     .post-card-mini .thumb img { width: 100%; height: 100%; object-fit: cover; }
@@ -226,5 +296,95 @@
       </footer>
     </div>
   </div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <h3>Меню</h3>
+      <button class="mobile-menu-close">&times;</button>
+    </div>
+    <div class="widget">
+      <h3>Разделы сайта</h3>
+      <a href="/">Главная</a>
+      <a href="/page/2/">Лента записей</a>
+      <a href="/download/">Проверка файла на вирусы</a>
+      <a href="/register/">Регистрация</a>
+    </div>
+    <div class="widget">
+      <h3>Категории</h3>
+      <a href="/category/novinki/">Новинки</a>
+      <a href="/category/chity/">Читы</a>
+      <a href="/category/vzlomy/">Взломы</a>
+      <a href="/category/mody/">Моды</a>
+      <a href="/category/3d/">3D</a>
+      <a href="/category/2d/">2D</a>
+      <a href="/category/anime/">Аниме</a>
+      <a href="/category/arkady/">Аркады</a>
+      <a href="/category/brodilki/">Бродилки</a>
+      <a href="/category/vizualnye-novelly/">Визуальные новеллы</a>
+      <a href="/category/golovolomki/">Головоломки</a>
+      <a href="/category/gonki/">Гонки</a>
+      <a href="/category/dinamichnye/">Динамичные</a>
+      <a href="/category/dlya-vzroslyh/">Для взрослых</a>
+      <a href="/category/dlya-detey/">Для детей</a>
+      <a href="/category/zombi/">Зомби</a>
+      <a href="/category/instrumenty/">Инструменты</a>
+      <a href="/category/kazualnye/">Казуальные</a>
+      <a href="/category/kraft/">Крафт</a>
+      <a href="/category/multipleer/">Мультиплеер</a>
+      <a href="/category/na-vyzhivanie/">На выживание</a>
+      <a href="/category/na-planshet/">На планшет</a>
+      <a href="/category/na-russkom/">На русском</a>
+      <a href="/category/onlayn/">Онлайн</a>
+      <a href="/category/ot-pervogo-litsa/">От первого лица</a>
+      <a href="/category/pikselnye/">Пиксельные</a>
+      <a href="/category/pk-igry/">ПК игры</a>
+      <a href="/category/poleznoe/">Полезное</a>
+      <a href="/category/prilozheniya/">Приложения</a>
+      <a href="/category/ranery/">Ранеры</a>
+      <a href="/category/rolevye/">Ролевые</a>
+      <a href="/category/s-otkrytym-mirom/">С открытым миром</a>
+      <a href="/category/s-sozdaniem-mira/">С созданием мира</a>
+      <a href="/category/s-sozdaniem-personazha/">С созданием персонажа</a>
+      <a href="/category/s-syuzhetom/">С сюжетом</a>
+      <a href="/category/simulyatory/">Симуляторы</a>
+      <a href="/category/sots-seti/">Соц сети</a>
+      <a href="/category/sportivnye/">Спортивные</a>
+      <a href="/category/stendoff-2/">Standoff 2</a>
+      <a href="/category/strategii/">Стратегии</a>
+      <a href="/category/toka-boka/">Toca Boca</a>
+      <a href="/category/top/">Топ</a>
+      <a href="/category/fentezi/">Фэнтези</a>
+      <a href="/category/fotoredaktory/">Фоторедакторы</a>
+      <a href="/category/hentay/">Хентай</a>
+      <a href="/category/horror/">Хоррор</a>
+      <a href="/category/shutery/">Шутеры</a>
+      <a href="/category/ekshen/">Экшен</a>
+      <a href="/category/18/">18+</a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var hamburger = document.querySelector('.humburger, .js-humburger');
+    var menu = document.querySelector('.mobile-menu');
+    var overlay = document.querySelector('.mobile-menu-overlay');
+    var closeBtn = document.querySelector('.mobile-menu-close');
+    
+    function openMenu() {
+      menu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    if (hamburger) hamburger.addEventListener('click', openMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  })();
+  </script>
 </body>
 </html>
