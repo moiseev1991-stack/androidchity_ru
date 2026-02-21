@@ -107,6 +107,24 @@ function injectMobileMenu(html) {
   return out;
 }
 
+/** Optimize images: add decoding="async", preload hero */
+function optimizeImages(html) {
+  if (!html || typeof html !== 'string') return html;
+  let out = html;
+  // Add preload for logo if not present
+  if (!out.includes('rel="preload" as="image"')) {
+    out = out.replace(/<\/title>/i, '</title>\n<link rel="preload" as="image" href="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png">');
+  }
+  // Replace wp-content/cache/minify CSS with assets
+  out = out.replace(/\/wp-content\/cache\/minify\/[a-z0-9]+\.css/gi, '/assets/css/main.min.css');
+  // Add decoding="async" to images that don't have it
+  out = out.replace(/<img\s+([^>]*?)(?<!decoding=["'][^"']*["'])>/gi, (match, attrs) => {
+    if (attrs.includes('decoding=')) return match;
+    return `<img ${attrs} decoding="async">`;
+  });
+  return out;
+}
+
 function injectGlobalNavAndSidebar(html, urlPath) {
   if (!html || typeof html !== 'string') return html;
   let out = html;
@@ -206,6 +224,7 @@ function createHandler(port) {
           body = injectGlobalNavAndSidebar(body, urlPath);
           body = ensurePostCardsVisible(body);
           body = injectMobileMenu(body);
+          body = optimizeImages(body);
           res.setHeader('Content-Type', contentType);
           res.end(body);
         } catch (e) {
