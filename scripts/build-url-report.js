@@ -40,13 +40,7 @@ function urlToLocalPath(url) {
   }
 }
 
-const sitemapFiles = [
-  'post-sitemap.xml',
-  'post-sitemap2.xml',
-  'page-sitemap.xml',
-  'category-sitemap.xml',
-  'author-sitemap.xml',
-];
+const sitemapFiles = ['sitemap.xml'];
 
 const allUrls = new Set();
 for (const name of sitemapFiles) {
