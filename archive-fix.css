@@ -68,9 +68,7 @@ a.page-numbers:hover {
 #main a:hover,
 .content-area a:hover {
   color: #004499 !important;
-}
-
-/* «Вам также может понравиться» — карточки строками (несколько в ряд) */
+}/* «Вам также может понравиться» — карточки строками (несколько в ряд) */
 #related-posts .post-cards,
 .related-posts .post-cards,
 #related-posts .post-cards--vertical,
