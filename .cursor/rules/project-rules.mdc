@@ -1,0 +1,74 @@
+---
+description: Обязательные правила проекта androidchity.ru — статический HTML-сайт об Android APK/играх
+alwaysApply: true
+---
+
+# Правила проекта androidchity.ru
+
+## Контекст проекта
+
+Статический HTML-сайт (самописка), восстановленный с WordPress. Темы: Android APK, игры, моды, взломы + раздел "Скачать БК" (букмекерские приложения). Сервер: `server.js` (Node.js, порт 8080) — проксирует изображения с оригинала, инжектирует мобильное меню на страницы без `id="mobile-menu-style"`.
+
+## Структура файлов
+
+```
+index.html              — главная страница
+skachat-bk/index.html   — каталог букмекеров
+404.html                — страница ошибки
+server.js               — локальный dev-сервер
+archive-fix.css         — фиксы для страниц архива/категорий
+assets/css/
+  main.min.css          — минифицированные стили WordPress (НЕ ТРОГАТЬ)
+  design.css            — основные кастомные стили (редактировать здесь)
+  bk-page.css           — стили страницы букмекеров
+```
+
+## Обязательно перед каждой задачей
+
+1. Прочитать изменяемый файл **целиком** перед редактированием
+2. Проверить зависимые CSS/JS: найти классы/ID в `design.css`, `bk-page.css`, `main.min.css`
+3. Не вносить изменения "вслепую" — только после чтения файла
+
+## Нельзя
+
+- Удалять рабочие скрипты/стили "потому что кажется лишним"
+- Менять классы/ID используемые JS без поиска по проекту (`.humburger`, `.js-humburger`, `.mobile-menu`, `.mobile-menu-overlay`, `.mobile-menu-close`, `.js-scroll-row`)
+- Ломать адаптивность (breakpoints: 1440, 1024, 768, 480px)
+- Добавлять тяжёлые библиотеки (jQuery, Bootstrap и т.п.) ради простых эффектов
+- Дублировать стили — выносить общее в `design.css`
+- Трогать `main.min.css` и `server.js` без крайней необходимости
+
+## Можно и нужно
+
+- Использовать CSS-переменные: `--c-primary`, `--c-surface`, `--c-bg`, `--c-border`, `--c-text`, `--c-muted`, `--r-*`, `--sh-*`, `--tr`
+- Vanilla JS только (без фреймворков)
+- БЭМ-подобные классы: `.site-header`, `.site-sidebar`, `.scroll-row`, `.bk-card`, `.post-card`, `.home-section`
+- Проверять наличие элемента: `if (el) el.addEventListener(...)`
+
+## Единый каркас на всех страницах
+
+Каждая страница должна содержать:
+- Хедер: `#masthead.site-header.fixed` с `.humburger`, `.site-branding`, `.header-search`
+- Сайдбар: `.site-sidebar` с разделами + категориями (пункт "🏆 Скачать БК" обязателен)
+- Мобильное меню: `.mobile-menu-overlay` + `.mobile-menu` (с `id="mobile-menu-style"` в `<style>`)
+- Футер: `.site-footer`
+- Подключения: `main.min.css` → `archive-fix.css` → `design.css` → (страничный CSS)
+
+## CSS-архитектура (design.css)
+
+Секции: Header → Sidebar → Categories → Scroll Row → BK Promo → Post Cards → Home Sections → BK Layout → Responsive.
+
+Не плодить дубли — если стиль используется на 2+ страницах, он в `design.css`.
+
+## Проверка после каждого изменения
+
+- [ ] Главная открывается, сайдбар отображается
+- [ ] Страница skachat-bk открывается с сайдбаром
+- [ ] Мобильное меню работает (кнопка бургера)
+- [ ] Нет пустых/битых карточек на главной
+- [ ] Нет критических ошибок в консоли
+- [ ] Адаптивность: desktop/tablet/mobile не сломана
+
+## GitHub
+
+После завершения задачи: `git add` → `git commit` (понятный message) → `git push`.

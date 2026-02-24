@@ -11,139 +11,74 @@
   <meta property="og:description" content="Архив сайта androidchity.ru. Скачать APK игры и приложения для Android, читы, моды, взломы.">
   <meta property="og:type" content="website">
   <link rel="icon" href="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" type="image/png">
-  <link rel="stylesheet" href="/assets/css/main.min.css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png">
-  <style>
-    .site-header, .site-header a { color: #c2d6b3; }
-    .humburger span { background: #c2d6b3; }
-    .site-header { background-color: #00681f; background-image: url("/wp-content/uploads/2023/11/remove-bg.ai_1701256378395.png"); background-position: right center; }
-    .site-title, .site-title a { color: #eeee22; font-family: "Fira Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1; font-weight: bold; }
-    .site-description { color: #ffffff; font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.8; font-weight: bold; }
-    @media (max-width: 767px) { .site-header { background-size: cover; } }
-    .site-footer { background-color: #002b0f; }
-    .home-nav { background: #f0f0f0; padding: 10px 20px; border-bottom: 1px solid #ddd; }
-    .home-nav a { color: #333; text-decoration: none; margin-right: 16px; font-size: 14px; }
-    .home-nav a:hover { color: #00681f; }
-    .layout-with-sidebar { display: flex; max-width: 1200px; margin: 0 auto; padding: 20px; gap: 24px; }
-    .site-sidebar { width: 220px; flex-shrink: 0; }
-    .site-sidebar .widget { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
-    .site-sidebar .widget h3 { margin: 0 0 12px; font-size: 1rem; color: #00681f; border-bottom: 1px solid #ddd; padding-bottom: 8px; }
-    .site-sidebar .widget a { display: block; color: #0693e3; text-decoration: none; padding: 6px 0; font-size: 14px; }
-    .site-sidebar .widget a:hover { color: #0073aa; text-decoration: underline; }
-    .site-sidebar .widget--categories { max-height: 70vh; overflow-y: auto; }
-    .home-main { flex: 1; min-width: 0; }
-    .home-main h2 { color: #0693e3; font-size: 1.25rem; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
-    .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
-    .category-card { display: block; background: #f5f5f5; border-radius: 8px; padding: 14px; text-align: center; color: #333; text-decoration: none; font-size: 14px; border: 1px solid #e8e8e8; transition: background .2s, border-color .2s; }
-    .category-card:hover { background: #e8f4fc; border-color: #0693e3; color: #0073aa; }
-    .recommended-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .recommended-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { 
-      .layout-with-sidebar { flex-direction: column; padding: 10px; } 
-      .site-sidebar { display: none; } 
-      .recommended-grid { grid-template-columns: 1fr; } 
-      .categories-grid { grid-template-columns: repeat(2, 1fr); } 
+  <link rel="stylesheet" href="/assets/css/main.min.css" media="all">
+  <link rel="stylesheet" href="/archive-fix.css">
+  <link rel="stylesheet" href="/assets/css/design.css">
+  <!-- id="mobile-menu-style" — prevents server from injecting a duplicate -->
+  <style id="mobile-menu-style">
+    /* Critical header override — must beat main.min.css */
+    #masthead.site-header,
+    #masthead.site-header.fixed,
+    .site-header,
+    .site-header.fixed {
+      background-color: #00681f !important;
+      background-image: linear-gradient(135deg, #004e18 0%, #1a8c3d 100%) !important;
     }
-    /* Mobile menu overlay */
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 9998;
-    }
-    .mobile-menu-overlay.active { display: block; }
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      left: -280px;
-      width: 280px;
-      height: 100%;
-      background: #fff;
-      z-index: 9999;
-      overflow-y: auto;
-      transition: left 0.3s ease;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-    }
-    .mobile-menu.active { left: 0; }
-    .mobile-menu-header {
-      background: #00681f;
-      color: #fff;
-      padding: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .mobile-menu-header h3 { margin: 0; font-size: 18px; }
-    .mobile-menu-close {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 28px;
-      cursor: pointer;
-      padding: 0;
-      line-height: 1;
-    }
-    .mobile-menu .widget {
-      padding: 16px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .mobile-menu .widget h3 {
-      margin: 0 0 12px;
-      font-size: 14px;
-      color: #00681f;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    .mobile-menu .widget a {
-      display: block;
-      color: #333;
-      text-decoration: none;
-      padding: 10px 0;
-      font-size: 15px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .mobile-menu .widget a:last-child { border-bottom: none; }
-    .mobile-menu .widget a:hover { color: #00681f; }
-    .humburger { cursor: pointer; }
-    .post-card-mini { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
-    .post-card-mini .thumb { display: block; aspect-ratio: 1; background: #eee; }
-    .post-card-mini .thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .post-card-mini .title { padding: 10px; font-size: 13px; line-height: 1.3; }
-    .post-card-mini .title a { color: #0693e3; text-decoration: none; }
-    .post-card-mini .title a:hover { text-decoration: underline; }
+    .site-title, .site-title a { color: #fff !important; }
+    .site-description { color: rgba(255,255,255,.80) !important; }
+    .site-header a, .site-header .site-branding a { color: #fff !important; }
+    /* Mobile menu */
+    .mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:9998}
+    .mobile-menu-overlay.active{display:block}
+    .mobile-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#fff;z-index:9999;overflow-y:auto;transition:left .3s ease;box-shadow:2px 0 12px rgba(0,0,0,.22)}
+    .mobile-menu.active{left:0}
+    .mobile-menu-header{background:#00681f;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+    .mobile-menu-header h3{margin:0;font-size:1.1rem}
+    .mobile-menu-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:0;line-height:1}
+    .mobile-menu .widget{padding:16px;border-bottom:1px solid #e8e8e8}
+    .mobile-menu .widget h3{margin:0 0 10px;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:#64748b}
+    .mobile-menu .widget a{display:block;color:#1e293b;text-decoration:none;padding:8px 6px;font-size:.9rem;border-bottom:1px solid #f0f0f0}
+    .mobile-menu .widget a:last-child{border-bottom:none}
+    .mobile-menu .widget a:hover{color:#00681f}
+    .humburger{cursor:pointer}
+    @media(min-width:769px){.mobile-menu-overlay,.mobile-menu{display:none!important}}
   </style>
-<link rel="stylesheet" href="/archive-fix.css" id="archive-fix-css">
-  <style id="mobile-menu-style">.mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998}.mobile-menu-overlay.active{display:block}.mobile-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#fff;z-index:9999;overflow-y:auto;transition:left 0.3s ease;box-shadow:2px 0 10px rgba(0,0,0,0.2)}.mobile-menu.active{left:0}.mobile-menu-header{background:#00681f;color:#fff;padding:16px}.mobile-menu-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer}.mobile-menu .widget{padding:16px;border-bottom:1px solid #e0e0e0}.mobile-menu .widget h3{margin:0 0 12px;font-size:14px;color:#00681f}.mobile-menu .widget a{display:block;color:#333;text-decoration:none;padding:10px 0}.humburger{cursor:pointer}@media(min-width:769px){.mobile-menu-overlay,.mobile-menu{display:none!important}}</style></head>
+</head>
 <body class="home page">
   <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content">Перейти к содержанию</a>
+
     <header id="masthead" class="site-header fixed" itemscope itemtype="http://schema.org/WPHeader">
       <div class="site-header-inner fixed">
         <div class="humburger js-humburger"><span></span><span></span><span></span></div>
         <div class="site-branding">
-          <div class="site-logotype"><a href="/"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" width="1024" height="1024" alt="Android-Games" fetchpriority="high" decoding="async"></a></div>
+          <div class="site-logotype">
+            <a href="/"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" width="44" height="44" alt="Android-Games" fetchpriority="high" decoding="async"></a>
+          </div>
           <div class="site-branding__body">
             <h1 class="site-title"><a href="/">Android-Games</a></h1>
-            <p class="site-description">APK</p>
+            <p class="site-description">APK игры и моды</p>
           </div>
         </div>
         <div class="header-search"><span class="search-icon js-search-icon"></span></div>
       </div>
     </header>
+
     <div class="container header-separator"></div>
-    <nav class="home-nav"></nav>
+
     <div id="content" class="site-content fixed">
       <div class="layout-with-sidebar">
-        <aside class="site-sidebar">
+
+        <aside class="site-sidebar" aria-label="Боковая панель">
           <div class="widget">
             <h3>Разделы сайта</h3>
             <a href="/">Главная</a>
             <a href="/page/2/">Лента записей</a>
-            <a href="/download/">Проверка файла на вирусы</a>
+            <a href="/skachat-bk/" class="sidebar-bk-link">🏆 Скачать БК</a>
+            <a href="/download/">Проверка файлов</a>
             <a href="/register/">Регистрация</a>
           </div>
           <div class="widget widget--categories">
@@ -199,97 +134,190 @@
             <a href="/category/18/">18+</a>
           </div>
         </aside>
+
         <main id="main" class="site-main home-main">
-          <h2>Категории</h2>
-          <div class="categories-grid">
-            <a href="/category/novinki/" class="category-card">Новинки</a>
-            <a href="/category/chity/" class="category-card">Читы</a>
-            <a href="/category/vzlomy/" class="category-card">Взломы</a>
-            <a href="/category/mody/" class="category-card">Моды</a>
-            <a href="/category/3d/" class="category-card">3D</a>
-            <a href="/category/2d/" class="category-card">2D</a>
-            <a href="/category/anime/" class="category-card">Аниме</a>
-            <a href="/category/arkady/" class="category-card">Аркады</a>
-            <a href="/category/brodilki/" class="category-card">Бродилки</a>
-            <a href="/category/vizualnye-novelly/" class="category-card">Визуальные новеллы</a>
-            <a href="/category/golovolomki/" class="category-card">Головоломки</a>
-            <a href="/category/gonki/" class="category-card">Гонки</a>
-            <a href="/category/dinamichnye/" class="category-card">Динамичные</a>
-            <a href="/category/dlya-vzroslyh/" class="category-card">Для взрослых</a>
-            <a href="/category/dlya-detey/" class="category-card">Для детей</a>
-            <a href="/category/zombi/" class="category-card">Зомби</a>
-            <a href="/category/instrumenty/" class="category-card">Инструменты</a>
-            <a href="/category/kazualnye/" class="category-card">Казуальные</a>
-            <a href="/category/kraft/" class="category-card">Крафт</a>
-            <a href="/category/multipleer/" class="category-card">Мультиплеер</a>
-            <a href="/category/na-vyzhivanie/" class="category-card">На выживание</a>
-            <a href="/category/na-planshet/" class="category-card">На планшет</a>
-            <a href="/category/na-russkom/" class="category-card">На русском</a>
-            <a href="/category/onlayn/" class="category-card">Онлайн</a>
-            <a href="/category/ot-pervogo-litsa/" class="category-card">От первого лица</a>
-            <a href="/category/pikselnye/" class="category-card">Пиксельные</a>
-            <a href="/category/pk-igry/" class="category-card">ПК игры</a>
-            <a href="/category/poleznoe/" class="category-card">Полезное</a>
-            <a href="/category/prilozheniya/" class="category-card">Приложения</a>
-            <a href="/category/ranery/" class="category-card">Ранеры</a>
-            <a href="/category/rolevye/" class="category-card">Ролевые</a>
-            <a href="/category/s-otkrytym-mirom/" class="category-card">С открытым миром</a>
-            <a href="/category/s-sozdaniem-mira/" class="category-card">С созданием мира</a>
-            <a href="/category/s-sozdaniem-personazha/" class="category-card">С созданием персонажа</a>
-            <a href="/category/s-syuzhetom/" class="category-card">С сюжетом</a>
-            <a href="/category/simulyatory/" class="category-card">Симуляторы</a>
-            <a href="/category/sots-seti/" class="category-card">Соц сети</a>
-            <a href="/category/sportivnye/" class="category-card">Спортивные</a>
-            <a href="/category/stendoff-2/" class="category-card">Standoff 2</a>
-            <a href="/category/strategii/" class="category-card">Стратегии</a>
-            <a href="/category/toka-boka/" class="category-card">Toca Boca</a>
-            <a href="/category/top/" class="category-card">Топ</a>
-            <a href="/category/fentezi/" class="category-card">Фэнтези</a>
-            <a href="/category/fotoredaktory/" class="category-card">Фоторедакторы</a>
-            <a href="/category/hentay/" class="category-card">Хентай</a>
-            <a href="/category/horror/" class="category-card">Хоррор</a>
-            <a href="/category/shutery/" class="category-card">Шутеры</a>
-            <a href="/category/ekshen/" class="category-card">Экшен</a>
-            <a href="/category/18/" class="category-card">18+</a>
-          </div>
-          <h2>Рекомендуем</h2>
-          <div class="recommended-grid">
-            <article class="post-card-mini">
-              <a href="/2023/12/08/fr-legends-mod-na-yaponskie-mashiny/" class="thumb"><img src="/wp-content/uploads/2023/12/4-6-400x400-1-100x100.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/08/fr-legends-mod-na-yaponskie-mashiny/">FR Legends mod на японские машины</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/08/aha-world-2-11-0-mod-vse-otkryto/" class="thumb"><img src="/wp-content/uploads/2023/12/4-38-400x400-1-100x100.jpg" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/08/aha-world-2-11-0-mod-vse-otkryto/">Aha World 2.11.0 mod — всё открыто</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/10/toka-boka-1-79-1-vzlom-vse-otkryto/" class="thumb"><img src="/wp-content/uploads/2023/12/4-6-400x400-1-100x100.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/10/toka-boka-1-79-1-vzlom-vse-otkryto/">Тока Бока 1.79.1 взлом все открыто</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/11/deltarune-na-android-vse-glavy-na-russkom/" class="thumb"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/11/deltarune-na-android-vse-glavy-na-russkom/">Deltarune на Android — все главы на русском</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/09/gta-4-s-keshem-na-android/" class="thumb"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/09/gta-4-s-keshem-na-android/">GTA 4 с кешем на Android</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2024/01/24/toka-boka-1-80-vsyo-otkryto-poslednyaya-versiya-s-mebelyu-i-domami-2024/" class="thumb"><img src="/wp-content/uploads/2023/12/8-400x400-1-100x100.webp" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2024/01/24/toka-boka-1-80-vsyo-otkryto-poslednyaya-versiya-s-mebelyu-i-domami-2024/">Тока Бока 1.80 — всё открыто (2024)</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/10/omori-na-android/" class="thumb"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/10/omori-na-android/">Omori на Android</a></div>
-            </article>
-            <article class="post-card-mini">
-              <a href="/2023/12/08/skachat-vzlom-wildcraft-mnogo-deneg-i-kristallov/" class="thumb"><img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="" loading="lazy" decoding="async" width="100" height="100"></a>
-              <div class="title"><a href="/2023/12/08/skachat-vzlom-wildcraft-mnogo-deneg-i-kristallov/">Взлом Wildcraft — много денег и кристаллов</a></div>
-            </article>
-          </div>
+
+          <!-- Горизонтальный скролл по разделам -->
+          <section class="home-section">
+            <div class="home-section__head">
+              <h2>Популярные разделы</h2>
+              <div class="scroll-nav">
+                <button class="scroll-nav__btn js-scroll-prev" aria-label="Прокрутить назад">&#8592;</button>
+                <button class="scroll-nav__btn js-scroll-next" aria-label="Прокрутить вперёд">&#8594;</button>
+              </div>
+            </div>
+            <div class="scroll-row js-scroll-row">
+              <a href="/" class="scroll-card">
+                <span class="scroll-card__icon">🎮</span>
+                <span class="scroll-card__label">Все игры</span>
+              </a>
+              <a href="/skachat-bk/" class="scroll-card scroll-card--bk">
+                <span class="scroll-card__icon">🏆</span>
+                <span class="scroll-card__label">Скачать БК</span>
+              </a>
+              <a href="/category/novinki/" class="scroll-card">
+                <span class="scroll-card__icon">🆕</span>
+                <span class="scroll-card__label">Новинки</span>
+              </a>
+              <a href="/category/chity/" class="scroll-card">
+                <span class="scroll-card__icon">🃏</span>
+                <span class="scroll-card__label">Читы</span>
+              </a>
+              <a href="/category/vzlomy/" class="scroll-card">
+                <span class="scroll-card__icon">🔓</span>
+                <span class="scroll-card__label">Взломы</span>
+              </a>
+              <a href="/category/mody/" class="scroll-card">
+                <span class="scroll-card__icon">⚙️</span>
+                <span class="scroll-card__label">Моды</span>
+              </a>
+              <a href="/category/gonki/" class="scroll-card">
+                <span class="scroll-card__icon">🏎️</span>
+                <span class="scroll-card__label">Гонки</span>
+              </a>
+              <a href="/category/rolevye/" class="scroll-card">
+                <span class="scroll-card__icon">⚔️</span>
+                <span class="scroll-card__label">Ролевые</span>
+              </a>
+              <a href="/category/ekshen/" class="scroll-card">
+                <span class="scroll-card__icon">💥</span>
+                <span class="scroll-card__label">Экшен</span>
+              </a>
+              <a href="/category/shutery/" class="scroll-card">
+                <span class="scroll-card__icon">🔫</span>
+                <span class="scroll-card__label">Шутеры</span>
+              </a>
+              <a href="/category/strategii/" class="scroll-card">
+                <span class="scroll-card__icon">♟️</span>
+                <span class="scroll-card__label">Стратегии</span>
+              </a>
+              <a href="/category/golovolomki/" class="scroll-card">
+                <span class="scroll-card__icon">🧩</span>
+                <span class="scroll-card__label">Головоломки</span>
+              </a>
+              <a href="/category/arkady/" class="scroll-card">
+                <span class="scroll-card__icon">👾</span>
+                <span class="scroll-card__label">Аркады</span>
+              </a>
+              <a href="/category/zombi/" class="scroll-card">
+                <span class="scroll-card__icon">🧟</span>
+                <span class="scroll-card__label">Зомби</span>
+              </a>
+              <a href="/category/anime/" class="scroll-card">
+                <span class="scroll-card__icon">⛩️</span>
+                <span class="scroll-card__label">Аниме</span>
+              </a>
+              <a href="/category/simulyatory/" class="scroll-card">
+                <span class="scroll-card__icon">🕹️</span>
+                <span class="scroll-card__label">Симуляторы</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- Промо-баннер: Скачать БК -->
+          <section class="home-section">
+            <div class="bk-promo-banner">
+              <div class="bk-promo-banner__content">
+                <div class="bk-promo-banner__badge">APK для Android</div>
+                <h2 class="bk-promo-banner__title">Скачать БК на Android</h2>
+                <p class="bk-promo-banner__text">Официальные APK лучших букмекеров — 1xBet, Мелбет, Фонбет и другие. Без Google Play, бесплатно.</p>
+                <a href="/skachat-bk/" class="bk-promo-banner__btn">Перейти в раздел →</a>
+              </div>
+              <div class="bk-promo-banner__icons" aria-hidden="true">🏆</div>
+            </div>
+          </section>
+
+          <!-- Популярные категории -->
+          <section class="home-section">
+            <h2>Популярные категории</h2>
+            <div class="categories-grid">
+              <a href="/category/novinki/" class="category-card">🆕 Новинки</a>
+              <a href="/category/chity/" class="category-card">🃏 Читы</a>
+              <a href="/category/vzlomy/" class="category-card">🔓 Взломы</a>
+              <a href="/category/mody/" class="category-card">⚙️ Моды</a>
+              <a href="/category/top/" class="category-card">🔥 Топ</a>
+              <a href="/category/rolevye/" class="category-card">⚔️ Ролевые</a>
+              <a href="/category/gonki/" class="category-card">🏎️ Гонки</a>
+              <a href="/category/ekshen/" class="category-card">💥 Экшен</a>
+              <a href="/category/shutery/" class="category-card">🔫 Шутеры</a>
+              <a href="/category/strategii/" class="category-card">♟️ Стратегии</a>
+              <a href="/category/arkady/" class="category-card">👾 Аркады</a>
+              <a href="/category/golovolomki/" class="category-card">🧩 Головоломки</a>
+              <a href="/category/anime/" class="category-card">⛩️ Аниме</a>
+              <a href="/category/zombi/" class="category-card">🧟 Зомби</a>
+              <a href="/category/simulyatory/" class="category-card">🕹️ Симуляторы</a>
+              <a href="/category/toka-boka/" class="category-card">🏠 Toca Boca</a>
+              <a href="/category/na-vyzhivanie/" class="category-card">🏕️ Выживание</a>
+              <a href="/category/s-otkrytym-mirom/" class="category-card">🌍 Открытый мир</a>
+              <a href="/skachat-bk/" class="category-card category-card--bk">🏆 Скачать БК</a>
+            </div>
+          </section>
+
+          <!-- Новые материалы -->
+          <section class="home-section">
+            <h2>Новые материалы</h2>
+            <div class="posts-grid">
+              <article class="post-card">
+                <a href="/2023/12/08/fr-legends-mod-na-yaponskie-mashiny/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/12/4-6-400x400-1-100x100.png" alt="FR Legends mod" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/gonki/" class="post-card__cat">Гонки</a>
+                  <h3 class="post-card__title"><a href="/2023/12/08/fr-legends-mod-na-yaponskie-mashiny/">FR Legends mod на японские машины</a></h3>
+                </div>
+              </article>
+              <article class="post-card">
+                <a href="/2023/12/08/aha-world-2-11-0-mod-vse-otkryto/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/12/4-38-400x400-1-100x100.jpg" alt="Aha World mod" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/mody/" class="post-card__cat">Моды</a>
+                  <h3 class="post-card__title"><a href="/2023/12/08/aha-world-2-11-0-mod-vse-otkryto/">Aha World 2.11.0 mod — всё открыто</a></h3>
+                </div>
+              </article>
+              <article class="post-card">
+                <a href="/2024/01/24/toka-boka-1-80-vsyo-otkryto-poslednyaya-versiya-s-mebelyu-i-domami-2024/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/12/8-400x400-1-100x100.webp" alt="Тока Бока 1.80" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/vzlomy/" class="post-card__cat">Взломы</a>
+                  <h3 class="post-card__title"><a href="/2024/01/24/toka-boka-1-80-vsyo-otkryto-poslednyaya-versiya-s-mebelyu-i-domami-2024/">Тока Бока 1.80 — всё открыто (2024)</a></h3>
+                </div>
+              </article>
+              <article class="post-card">
+                <a href="/2023/12/10/toka-boka-1-79-1-vzlom-vse-otkryto/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/12/4-6-400x400-1-100x100.png" alt="Тока Бока взлом" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/vzlomy/" class="post-card__cat">Взломы</a>
+                  <h3 class="post-card__title"><a href="/2023/12/10/toka-boka-1-79-1-vzlom-vse-otkryto/">Тока Бока 1.79.1 взлом все открыто</a></h3>
+                </div>
+              </article>
+              <article class="post-card">
+                <a href="/2023/12/09/gta-4-s-keshem-na-android/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="GTA 4 Android" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/ekshen/" class="post-card__cat">Экшен</a>
+                  <h3 class="post-card__title"><a href="/2023/12/09/gta-4-s-keshem-na-android/">GTA 4 с кешем на Android</a></h3>
+                </div>
+              </article>
+              <article class="post-card">
+                <a href="/2023/12/10/omori-na-android/" class="post-card__thumb">
+                  <img src="/wp-content/uploads/2023/11/remove-bg.ai_1701256636548.png" alt="Omori Android" loading="lazy" decoding="async" width="400" height="400">
+                </a>
+                <div class="post-card__body">
+                  <a href="/category/rolevye/" class="post-card__cat">Ролевые</a>
+                  <h3 class="post-card__title"><a href="/2023/12/10/omori-na-android/">Omori на Android</a></h3>
+                </div>
+              </article>
+            </div>
+          </section>
+
         </main>
       </div>
     </div>
+
     <div class="site-footer-container">
       <footer id="colophon" class="site-footer site-footer--style-gray fixed">
         <div class="site-footer-inner fixed">
@@ -300,17 +328,19 @@
       </footer>
     </div>
   </div>
+
   <!-- Mobile Menu -->
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu">
+  <div class="mobile-menu-overlay" role="presentation"></div>
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню навигации">
     <div class="mobile-menu-header">
       <h3>Меню</h3>
-      <button class="mobile-menu-close">&times;</button>
+      <button class="mobile-menu-close" aria-label="Закрыть меню">&times;</button>
     </div>
     <div class="widget">
       <h3>Разделы сайта</h3>
       <a href="/">Главная</a>
       <a href="/page/2/">Лента записей</a>
+      <a href="/skachat-bk/">🏆 Скачать БК</a>
       <a href="/download/">Проверка файла на вирусы</a>
       <a href="/register/">Регистрация</a>
     </div>
@@ -367,28 +397,31 @@
       <a href="/category/18/">18+</a>
     </div>
   </div>
+
   <script>
-  (function(){
+  (function () {
     var hamburger = document.querySelector('.humburger, .js-humburger');
-    var menu = document.querySelector('.mobile-menu');
-    var overlay = document.querySelector('.mobile-menu-overlay');
-    var closeBtn = document.querySelector('.mobile-menu-close');
-    
-    function openMenu() {
-      menu.classList.add('active');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-      menu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
+    var menu      = document.querySelector('.mobile-menu');
+    var overlay   = document.querySelector('.mobile-menu-overlay');
+    var closeBtn  = document.querySelector('.mobile-menu-close');
+
+    function openMenu()  { menu.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { menu.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+
     if (hamburger) hamburger.addEventListener('click', openMenu);
-    if (overlay) overlay.addEventListener('click', closeMenu);
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if (overlay)   overlay.addEventListener('click', closeMenu);
+    if (closeBtn)  closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+    /* Horizontal scroll row navigation */
+    var scrollRow  = document.querySelector('.js-scroll-row');
+    var prevBtn    = document.querySelector('.js-scroll-prev');
+    var nextBtn    = document.querySelector('.js-scroll-next');
+    if (scrollRow) {
+      if (nextBtn) nextBtn.addEventListener('click', function () { scrollRow.scrollBy({ left: 240, behavior: 'smooth' }); });
+      if (prevBtn) prevBtn.addEventListener('click', function () { scrollRow.scrollBy({ left: -240, behavior: 'smooth' }); });
+    }
   })();
   </script>
-<div class="mobile-menu-overlay"></div><div class="mobile-menu"><div class="mobile-menu-header"><h3>Меню</h3><button class="mobile-menu-close">&times;</button></div><div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/download/">Проверка файла на вирусы</a><a href="/register/">Регистрация</a></div><div class="widget"><h3>Категории</h3><a href="/category/novinki/">Новинки</a><a href="/category/chity/">Читы</a><a href="/category/vzlomy/">Взломы</a><a href="/category/mody/">Моды</a><a href="/category/3d/">3D</a><a href="/category/2d/">2D</a><a href="/category/anime/">Аниме</a><a href="/category/arkady/">Аркады</a><a href="/category/brodilki/">Бродилки</a><a href="/category/vizualnye-novelly/">Визуальные новеллы</a><a href="/category/golovolomki/">Головоломки</a><a href="/category/gonki/">Гонки</a><a href="/category/dinamichnye/">Динамичные</a><a href="/category/dlya-vzroslyh/">Для взрослых</a><a href="/category/dlya-detey/">Для детей</a><a href="/category/zombi/">Зомби</a><a href="/category/instrumenty/">Инструменты</a><a href="/category/kazualnye/">Казуальные</a><a href="/category/kraft/">Крафт</a><a href="/category/multipleer/">Мультиплеер</a><a href="/category/na-vyzhivanie/">На выживание</a><a href="/category/na-planshet/">На планшет</a><a href="/category/na-russkom/">На русском</a><a href="/category/onlayn/">Онлайн</a><a href="/category/ot-pervogo-litsa/">От первого лица</a><a href="/category/pikselnye/">Пиксельные</a><a href="/category/pk-igry/">ПК игры</a><a href="/category/poleznoe/">Полезное</a><a href="/category/prilozheniya/">Приложения</a><a href="/category/ranery/">Ранеры</a><a href="/category/rolevye/">Ролевые</a><a href="/category/s-otkrytym-mirom/">С открытым миром</a><a href="/category/s-sozdaniem-mira/">С созданием мира</a><a href="/category/s-sozdaniem-personazha/">С созданием персонажа</a><a href="/category/s-syuzhetom/">С сюжетом</a><a href="/category/simulyatory/">Симуляторы</a><a href="/category/sots-seti/">Соц сети</a><a href="/category/sportivnye/">Спортивные</a><a href="/category/stendoff-2/">Standoff 2</a><a href="/category/strategii/">Стратегии</a><a href="/category/toka-boka/">Toca Boca</a><a href="/category/top/">Топ</a><a href="/category/fentezi/">Фэнтези</a><a href="/category/fotoredaktory/">Фоторедакторы</a><a href="/category/hentay/">Хентай</a><a href="/category/horror/">Хоррор</a><a href="/category/shutery/">Шутеры</a><a href="/category/ekshen/">Экшен</a><a href="/category/18/">18+</a></div></div><script id="mobile-menu-js">(function(){var h=document.querySelector(".humburger,.js-humburger"),m=document.querySelector(".mobile-menu"),o=document.querySelector(".mobile-menu-overlay"),c=document.querySelector(".mobile-menu-close");function open(){m.classList.add("active");o.classList.add("active");document.body.style.overflow="hidden"}function close(){m.classList.remove("active");o.classList.remove("active");document.body.style.overflow=""}if(h)h.addEventListener("click",open);if(o)o.addEventListener("click",close);if(c)c.addEventListener("click",close)})();</script></body>
+</body>
 </html>

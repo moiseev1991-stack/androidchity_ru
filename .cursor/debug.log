@@ -1,0 +1,19 @@
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/chity/","skipped":false,"hasDesignCss":false},"timestamp":1771961086178}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/chity/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961086178}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/skachat-bk/","skipped":true,"hasDesignCss":true},"timestamp":1771961101545}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/index.html","skipped":true,"hasDesignCss":true},"timestamp":1771961103591}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/2023/12/11/deltarune-na-android-vse-glavy-na-russkom/","skipped":false,"hasDesignCss":false},"timestamp":1771961106114}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/2023/12/11/deltarune-na-android-vse-glavy-na-russkom/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961106114}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/mody/","skipped":false,"hasDesignCss":false},"timestamp":1771961109042}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/mody/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961109042}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/vizualnye-novelly/","skipped":false,"hasDesignCss":false},"timestamp":1771961111753}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/vizualnye-novelly/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961111753}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/onlayn/","skipped":false,"hasDesignCss":false},"timestamp":1771961115529}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/onlayn/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961115529}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/s-otkrytym-mirom/","skipped":false,"hasDesignCss":false},"timestamp":1771961116840}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/s-otkrytym-mirom/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961116840}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/index.html","skipped":true,"hasDesignCss":true},"timestamp":1771961121994}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/category/chity/","skipped":false,"hasDesignCss":false},"timestamp":1771961169384}
+{"location":"server.js:injectGlobalNavAndSidebar","message":"CSS injection check","data":{"urlPath":"/category/chity/","v2Present":false,"v1Present":true,"hasLayout":true,"isHome":false},"timestamp":1771961169384}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/index.html","skipped":true,"hasDesignCss":true},"timestamp":1771961359859}
+{"location":"server.js:injectDesignCSS","message":"design.css check","data":{"urlPath":"/skachat-bk/","skipped":true,"hasDesignCss":true},"timestamp":1771961359889}
