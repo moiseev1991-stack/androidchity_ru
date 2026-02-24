@@ -671,7 +671,7 @@ nav.home-nav {
 
 .post-card__thumb {
   display: block;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1;
   overflow: hidden;
   background: var(--c-bg);
 }
