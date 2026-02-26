@@ -650,10 +650,13 @@ nav.home-nav {
   background: var(--c-surface) !important;
   border: 1px solid var(--c-border) !important;
   border-radius: var(--r-md) !important;
-  overflow: hidden;
-  box-shadow: var(--sh-sm);
-  display: flex;
-  flex-direction: column;
+  overflow: hidden !important;
+  box-shadow: var(--sh-sm) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  max-width: 100% !important;
+  margin: 0 !important;
   transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr) !important;
 }
 
@@ -666,10 +669,12 @@ nav.home-nav {
 .post-card__thumbnail {
   display: block !important;
   width: 100% !important;
+  max-width: 100% !important;
   aspect-ratio: 1 !important;
   overflow: hidden !important;
-  background: var(--c-bg);
-  flex-shrink: 0;
+  background: var(--c-bg) !important;
+  flex: 0 0 auto !important;
+  margin-bottom: 0 !important;
 }
 
 .post-card__thumbnail a {
@@ -681,8 +686,8 @@ nav.home-nav {
 .post-card__thumbnail img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover;
-  display: block;
+  object-fit: cover !important;
+  display: block !important;
   transition: transform .35s ease;
 }
 
@@ -692,18 +697,23 @@ nav.home-nav {
 
 .post-card__body {
   padding: 10px 12px 12px !important;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
   gap: 4px;
+  overflow: hidden !important;
 }
 
 .post-card__category {
   font-size: .68rem !important;
   font-weight: 700 !important;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
   letter-spacing: .06em;
   color: var(--c-primary) !important;
+  background: none !important;
+  display: block !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .post-card__title {
@@ -716,10 +726,10 @@ nav.home-nav {
 .post-card__title a {
   color: #0066cc !important;
   text-decoration: none !important;
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .post-card__title a:hover {

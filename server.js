@@ -66,7 +66,7 @@ function proxyFromOrigin(urlPath, res, sendError) {
 }
 
 /** Верхнее меню и левый сайдбар (Разделы сайта + Категории) на всех страницах кроме главной. */
-const GLOBAL_NAV_HTML = '<nav class="home-nav"></nav>';
+const GLOBAL_NAV_HTML = '<nav class="home-nav"><a href="/">Главная</a><a href="/skachat-bk/" class="nav-bk">🏆 Скачать БК</a><a href="/category/novinki/">Новинки</a><a href="/category/top/">Топ</a><a href="/category/mody/">Моды</a><a href="/category/chity/">Читы</a><a href="/category/vzlomy/">Взломы</a><a href="/category/rolevye/">Ролевые</a><a href="/category/gonki/">Гонки</a><a href="/page/2/">Все записи</a></nav>';
 const SIDEBAR_CATEGORIES = [
   ['novinki', 'Новинки'], ['chity', 'Читы'], ['vzlomy', 'Взломы'], ['mody', 'Моды'], ['3d', '3D'], ['2d', '2D'],
   ['anime', 'Аниме'], ['arkady', 'Аркады'], ['brodilki', 'Бродилки'], ['vizualnye-novelly', 'Визуальные новеллы'],
@@ -82,8 +82,8 @@ const SIDEBAR_CATEGORIES = [
   ['hentay', 'Хентай'], ['horror', 'Хоррор'], ['shutery', 'Шутеры'], ['ekshen', 'Экшен'], ['18', '18+']
 ];
 const SIDEBAR_CATEGORIES_HTML = SIDEBAR_CATEGORIES.map(([slug, name]) => '<a href="/category/' + slug + '/">' + name + '</a>').join('');
-const SIDEBAR_HTML = '<aside class="site-sidebar"><div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/download/">Проверка файла на вирусы</a><a href="/register/">Регистрация</a></div><div class="widget widget--categories"><h3>Категории</h3>' + SIDEBAR_CATEGORIES_HTML + '</div></aside>';
-const LAYOUT_SIDEBAR_CSS = '<style id="layout-sidebar-style">.home-nav{background:#f0f0f0;padding:10px 20px;border-bottom:1px solid #ddd}.home-nav a{color:#333;text-decoration:none;margin-right:16px;font-size:14px}.home-nav a:hover{color:#00681f}.layout-with-sidebar{display:flex;max-width:1200px;margin:0 auto;padding:20px;gap:24px}.site-sidebar{width:220px;flex-shrink:0}.site-sidebar .widget{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:20px}.site-sidebar .widget h3{margin:0 0 12px;font-size:1rem;color:#00681f;border-bottom:1px solid #ddd;padding-bottom:8px}.site-sidebar .widget a{display:block;color:#0693e3;text-decoration:none;padding:6px 0;font-size:14px}.site-sidebar .widget a:hover{color:#0073aa;text-decoration:underline}.site-sidebar .widget--categories{max-height:70vh;overflow-y:auto}.layout-with-sidebar .home-main{flex:1;min-width:0}@media(max-width:768px){.layout-with-sidebar{flex-direction:column;padding:10px}.site-sidebar{display:none}}</style>';
+const SIDEBAR_HTML = '<aside class="site-sidebar"><div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/skachat-bk/" class="sidebar-bk-link">🏆 Скачать БК</a><a href="/download/">Проверка файлов</a><a href="/register/">Регистрация</a></div><div class="widget widget--categories"><h3>Категории</h3>' + SIDEBAR_CATEGORIES_HTML + '</div></aside>';
+const LAYOUT_SIDEBAR_CSS = '<style id="layout-sidebar-style-v2">*,*::before,*::after{box-sizing:border-box}body{font-family:\'Inter\',-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif!important;background:#f4f6f9;color:#1e293b;-webkit-font-smoothing:antialiased}#masthead.site-header,#masthead.site-header.fixed,.site-header,.site-header.fixed{background:linear-gradient(135deg,#004e18 0%,#1a8c3d 100%)!important;box-shadow:0 2px 16px rgba(0,0,0,.22)!important;position:sticky!important;top:0!important;z-index:100!important}.site-header-inner.fixed{max-width:1240px;margin:0 auto;padding:0 24px;min-height:64px}.site-title,.site-title a,div.site-title,div.site-title a{color:#fff!important;font-size:1.25rem!important;font-weight:700!important;text-decoration:none!important}.site-description{color:rgba(255,255,255,.80)!important;font-size:.78rem!important;text-transform:uppercase;font-weight:500!important;letter-spacing:.04em}.site-header a,.site-header .site-branding a{color:#fff!important}.site-logotype img{border-radius:6px}.humburger span{background:#fff!important}.home-nav,nav.home-nav{background:#fff!important;border-bottom:1px solid #e2e8f0!important;padding:0 24px!important;display:flex!important;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none}.home-nav a{font-size:.875rem!important;font-weight:500!important;color:#64748b!important;text-decoration:none!important;padding:10px 14px!important;border-bottom:2px solid transparent;white-space:nowrap}.home-nav a:hover,.home-nav a.active{color:#1a8c3d!important;border-bottom-color:#1a8c3d}.layout-with-sidebar{display:flex!important;width:100%!important;max-width:100%!important;margin:0!important;padding:24px 0!important;gap:32px!important;align-items:flex-start}.layout-with-sidebar .home-main,.layout-with-sidebar #main,.layout-with-sidebar .site-main{flex:1!important;min-width:0!important}.site-sidebar{width:232px!important;flex-shrink:0}.site-sidebar .widget{background:#fff!important;border:1px solid #e2e8f0!important;border-radius:16px!important;padding:16px!important;margin-bottom:16px!important;box-shadow:0 1px 4px rgba(0,0,0,.07)}.site-sidebar .widget h3{font-size:.7rem!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.07em!important;color:#64748b!important;border-bottom:1px solid #e2e8f0!important;padding-bottom:8px!important;margin:0 0 8px!important}.site-sidebar .widget a{display:block!important;color:#1e293b!important;text-decoration:none!important;font-size:.875rem!important;padding:7px 8px!important;border-radius:6px!important;transition:background .18s ease,color .18s ease!important}.site-sidebar .widget a:hover{background:#e7f5ed!important;color:#00681f!important;text-decoration:none!important}.site-sidebar .widget--categories{max-height:70vh;overflow-y:auto;scrollbar-width:thin}@media(max-width:768px){.layout-with-sidebar{flex-direction:column!important;padding:16px!important}.site-sidebar{display:none!important}}</style>';
 
 /** Mobile menu CSS, HTML and JS */
 const MOBILE_MENU_CSS = '<style id="mobile-menu-style">.mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998}.mobile-menu-overlay.active{display:block}.mobile-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#fff;z-index:9999;overflow-y:auto;transition:left 0.3s ease;box-shadow:2px 0 10px rgba(0,0,0,0.2)}.mobile-menu.active{left:0}.mobile-menu-header{background:#00681f;color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.mobile-menu-header h3{margin:0;font-size:18px}.mobile-menu-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:0;line-height:1}.mobile-menu .widget{padding:16px;border-bottom:1px solid #e0e0e0}.mobile-menu .widget h3{margin:0 0 12px;font-size:14px;color:#00681f;text-transform:uppercase;font-weight:bold}.mobile-menu .widget a{display:block;color:#333;text-decoration:none;padding:10px 0;font-size:15px;border-bottom:1px solid #f0f0f0}.mobile-menu .widget a:last-child{border-bottom:none}.mobile-menu .widget a:hover{color:#00681f}.humburger{cursor:pointer}</style>';
@@ -91,7 +91,7 @@ const MOBILE_MENU_CSS = '<style id="mobile-menu-style">.mobile-menu-overlay{disp
 const MOBILE_MENU_HTML = `<div class="mobile-menu-overlay"></div>
 <div class="mobile-menu">
 <div class="mobile-menu-header"><h3>Меню</h3><button class="mobile-menu-close">&times;</button></div>
-<div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/download/">Проверка файла на вирусы</a><a href="/register/">Регистрация</a></div>
+<div class="widget"><h3>Разделы сайта</h3><a href="/">Главная</a><a href="/page/2/">Лента записей</a><a href="/skachat-bk/" class="sidebar-bk-link">🏆 Скачать БК</a><a href="/download/">Проверка файлов</a><a href="/register/">Регистрация</a></div>
 <div class="widget"><h3>Категории</h3>${SIDEBAR_CATEGORIES.map(([slug, name]) => '<a href="/category/' + slug + '/">' + name + '</a>').join('')}</div>
 </div>`;
 
@@ -125,26 +125,48 @@ function optimizeImages(html) {
   return out;
 }
 
+/** Добавляет ссылку "🏆 Скачать БК" в сайдбар на всех страницах, где её нет. */
+function fixSidebarBKLink(html) {
+  if (!html || typeof html !== 'string') return html;
+  if (html.includes('sidebar-bk-link')) return html;
+  if (!html.includes('site-sidebar')) return html;
+  // Вставляем после "Лента записей", перед ссылкой на /download/ или /register/
+  let out = html.replace(
+    /(<a href="\/page\/2\/">Лента записей<\/a>)/g,
+    '$1<a href="/skachat-bk/" class="sidebar-bk-link">🏆 Скачать БК</a>'
+  );
+  // Также в мобильном меню, если там есть сайдбар
+  return out;
+}
+
 function injectGlobalNavAndSidebar(html, urlPath) {
   if (!html || typeof html !== 'string') return html;
   let out = html;
-  // Убрать пункты меню из home-nav на всех страницах — оставить только серую полоску
-  out = out.replace(/<nav\s+class="home-nav"[^>]*>[\s\S]*?<\/nav>/gi, '<nav class="home-nav"></nav>');
-  const isHome = urlPath === '/' || urlPath === '/index.html' || urlPath === '';
+  const isHome = urlPath === '/' || urlPath === '/index.html' || urlPath === ''
+    || urlPath === '/skachat-bk/' || urlPath === '/skachat-bk/index.html';
+  // На внутренних страницах полностью удаляем home-nav (он не нужен ни на одной странице кроме скрытых)
+  if (!isHome) {
+    out = out.replace(/<nav\s+class="home-nav[^"]*"[^>]*>[\s\S]*?<\/nav>/gi, '');
+  }
   if (isHome) return out;
   if (!out.includes('id="content"') || !out.includes('site-content')) return out;
-
-  if (!out.includes('class="home-nav"')) {
-    out = out.replace(/<div\s+class="[^"]*container[^"]*header-separator[^"]*"\s*><\/div>\s*/i, '<div class="container header-separator"></div>\n' + GLOBAL_NAV_HTML + '\n');
-  }
   if (!out.includes('layout-with-sidebar')) {
     out = out.replace(/<div\s+id="content"\s+class="[^"]*site-content[^"]*"\s*>/i, '<div id="content" class="site-content fixed">\n<div class="layout-with-sidebar">\n' + SIDEBAR_HTML + '\n<div class="home-main">');
     out = out.replace(/(<div\s+class="site-footer-container\s*")/i, '</div></div>\n$1');
   }
-  if (!out.includes('id="layout-sidebar-style"')) {
+  if (!out.includes('id="layout-sidebar-style-v2"')) {
     out = out.replace(/\s*<\/head\s*>/i, LAYOUT_SIDEBAR_CSS + '</head>');
   }
   return out;
+}
+
+/** Подключает design.css и критические стили шапки на все HTML-страницы. */
+function injectDesignCSS(html) {
+  if (!html || typeof html !== 'string') return html;
+  if (html.includes('/assets/css/design.css')) return html;
+  const link = '<link rel="stylesheet" href="/assets/css/design.css">';
+  const criticalStyle = '<style id="design-critical">#masthead.site-header,#masthead.site-header.fixed,.site-header,.site-header.fixed{background-color:#00681f!important;background-image:linear-gradient(135deg,#004e18 0%,#1a8c3d 100%)!important}.site-title,.site-title a{color:#fff!important}.site-description{color:rgba(255,255,255,.80)!important}.site-header a{color:#fff!important}</style>';
+  return html.replace(/(\s*<\/head\s*>)/i, link + criticalStyle + '$1');
 }
 
 /** Подключение CSS и скрипта, чтобы карточки постов были видны на страницах категорий. */
@@ -152,8 +174,8 @@ function ensurePostCardsVisible(html) {
   if (!html || typeof html !== 'string') return html;
   if (!html.includes('post-card')) return html;
   const link = '<link rel="stylesheet" href="/archive-fix.css" id="archive-fix-css">';
-  const relatedStyle = '<style id="related-posts-grid">.post-cards, .post-cards--small, .post-cards--grid, .post-cards--vertical, #related-posts .post-cards, .related-posts .post-cards { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 1rem 1.25rem !important; } @media (max-width: 1200px) { .post-cards, .post-cards--small, .post-cards--grid, .post-cards--vertical, #related-posts .post-cards, .related-posts .post-cards { grid-template-columns: repeat(3, 1fr) !important; } } @media (max-width: 768px) { .post-cards, .post-cards--small, .post-cards--grid, .post-cards--vertical, #related-posts .post-cards, .related-posts .post-cards { grid-template-columns: repeat(2, 1fr) !important; } } .post-card, .post-card--small, .post-card--grid, .post-card--related, #related-posts .post-card, .related-posts .post-card { margin: 0 !important; width: auto !important; max-width: 100% !important; }</style>';
-  const script = '<script id="archive-fix-js">(function(){var c=document.querySelectorAll(".post-cards");c.forEach(function(card){card.style.setProperty("opacity","1","important");card.style.setProperty("visibility","visible","important");card.style.setProperty("display","grid","important");var cols=4;if(window.innerWidth<=1200)cols=3;if(window.innerWidth<=768)cols=2;card.style.setProperty("grid-template-columns","repeat("+cols+", 1fr)","important");card.style.setProperty("gap","1rem 1.25rem","important");[].forEach.call(card.querySelectorAll(".post-card, .w-animate"),function(el){el.style.setProperty("opacity","1","important");el.style.setProperty("visibility","visible","important");el.style.setProperty("transform","none","important");el.style.setProperty("margin","0","important");el.style.setProperty("width","auto","important");});});})();</script>';
+  const relatedStyle = '<style id="related-posts-grid">.post-cards, .post-cards--small, .post-cards--grid, .post-cards--vertical, #related-posts .post-cards, .related-posts .post-cards { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1rem 1.25rem !important; } @media (max-width: 768px) { .post-cards, .post-cards--small, .post-cards--grid, .post-cards--vertical, #related-posts .post-cards, .related-posts .post-cards { grid-template-columns: repeat(2, 1fr) !important; } } .post-card, .post-card--small, .post-card--grid, .post-card--related, #related-posts .post-card, .related-posts .post-card { margin: 0 !important; width: auto !important; max-width: 100% !important; }</style>';
+  const script = '<script id="archive-fix-js">(function(){var c=document.querySelectorAll(".post-cards");c.forEach(function(card){card.style.setProperty("opacity","1","important");card.style.setProperty("visibility","visible","important");card.style.setProperty("display","grid","important");var cols=3;if(window.innerWidth<=768)cols=2;card.style.setProperty("grid-template-columns","repeat("+cols+", 1fr)","important");card.style.setProperty("gap","1rem 1.25rem","important");[].forEach.call(card.querySelectorAll(".post-card, .w-animate"),function(el){el.style.setProperty("opacity","1","important");el.style.setProperty("visibility","visible","important");el.style.setProperty("transform","none","important");el.style.setProperty("margin","0","important");el.style.setProperty("width","auto","important");});});})();</script>';
   if (html.includes('id="archive-fix-css"')) {
     if (!html.includes('id="related-posts-grid"')) {
       return html.replace(/\s*<\/head\s*>/i, relatedStyle + '</head>');
@@ -201,11 +223,12 @@ function createHandler(port) {
       const isHtml = ext === '.html';
       const contentType = MIME[ext] || 'application/octet-stream';
 
-      // Кэширование статики (CSS, JS, изображения, шрифты)
+      // Кэширование статики: CSS/JS не кешируем (часто меняются), изображения/шрифты — 1 день
       if (!isHtml) {
-        const cacheMaxAge = 86400; // 1 день
+        const isCssOrJs = ext === '.css' || ext === '.js';
+        const cacheMaxAge = isCssOrJs ? 0 : 86400;
         res.setHeader('Content-Type', contentType);
-        res.setHeader('Cache-Control', `public, max-age=${cacheMaxAge}`);
+        res.setHeader('Cache-Control', isCssOrJs ? 'no-cache, no-store, must-revalidate' : `public, max-age=${cacheMaxAge}`);
         const stream = fs.createReadStream(filePath);
         stream.on('error', () => sendError(500, 'Error reading file'));
         stream.pipe(res);
@@ -221,7 +244,9 @@ function createHandler(port) {
           const host = req.headers.host || `localhost:${port}`;
           let body = replaceHost(data, host);
           body = blockPushNotifications(body);
+          body = injectDesignCSS(body);
           body = injectGlobalNavAndSidebar(body, urlPath);
+          body = fixSidebarBKLink(body);
           body = ensurePostCardsVisible(body);
           body = injectMobileMenu(body);
           body = optimizeImages(body);
