@@ -687,6 +687,9 @@
   flex-shrink: 0;
 }
 
+a.bk-rank-btn-review,
+a.bk-rank-btn-review:link,
+a.bk-rank-btn-review:visited,
 .bk-rank-btn-review {
   padding: 8px 18px;
   border: 1.5px solid #d1d5db;
@@ -701,6 +704,8 @@
   line-height: 1.4;
 }
 
+a.bk-rank-btn-review:hover,
+a.bk-rank-btn-review:focus,
 .bk-rank-btn-review:hover {
   border-color: #9ca3af;
   background: #f1f5f9;
@@ -708,6 +713,9 @@
   text-decoration: none !important;
 }
 
+a.bk-rank-btn-dl,
+a.bk-rank-btn-dl:link,
+a.bk-rank-btn-dl:visited,
 .bk-rank-btn-dl {
   padding: 8px 20px;
   border-radius: 7px;
@@ -722,6 +730,8 @@
   line-height: 1.4;
 }
 
+a.bk-rank-btn-dl:hover,
+a.bk-rank-btn-dl:focus,
 .bk-rank-btn-dl:hover {
   background: #15803d;
   transform: translateY(-1px);

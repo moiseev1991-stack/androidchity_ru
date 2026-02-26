@@ -149,6 +149,9 @@
   flex-wrap: wrap;
 }
 
+a.bki-btn-dl,
+a.bki-btn-dl:link,
+a.bki-btn-dl:visited,
 .bki-btn-dl {
   flex: 1;
   min-width: 140px;
@@ -168,6 +171,8 @@
   gap: 6px;
 }
 
+a.bki-btn-dl:hover,
+a.bki-btn-dl:focus,
 .bki-btn-dl:hover {
   background: #15803d;
   transform: translateY(-1px);
@@ -176,6 +181,9 @@
   text-decoration: none !important;
 }
 
+a.bki-btn-site,
+a.bki-btn-site:link,
+a.bki-btn-site:visited,
 .bki-btn-site {
   flex: 1;
   min-width: 120px;
@@ -195,6 +203,8 @@
   gap: 6px;
 }
 
+a.bki-btn-site:hover,
+a.bki-btn-site:focus,
 .bki-btn-site:hover {
   border-color: #9ca3af;
   background: #f1f5f9;
