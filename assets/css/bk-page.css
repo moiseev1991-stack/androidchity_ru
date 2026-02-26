@@ -556,6 +556,217 @@
   margin: 0;
 }
 
+/* ══════════════════════════════════════════
+   BK Rank List — каталог в виде рейтинга
+   ══════════════════════════════════════════ */
+
+.bk-rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bk-rank-item {
+  background: #fff;
+  border: 1px solid #e4eaf2;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.bk-rank-item:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+  transform: translateY(-1px);
+}
+
+.bk-rank-main {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 16px;
+}
+
+.bk-rank-num {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .875rem;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.bk-rank-logo-wrap {
+  width: 140px;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── BK Logo styles ── */
+.bkl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  border-radius: 8px;
+  font-weight: 800;
+  padding: 0 12px;
+  font-size: 1rem;
+  white-space: nowrap;
+  letter-spacing: -.02em;
+}
+
+.bkl-accent { color: #fbbf24; }
+.bkl-sub    { font-size: .65em; font-weight: 400; opacity: .75; margin-left: 3px; }
+.bkl-star   { color: #f59e0b; font-size: 1.1em; margin: 0 1px; }
+.bkl-circle { font-size: .7em; margin-left: 3px; }
+
+.bkl--pari      { background: #fff7ed; color: #ea580c; font-style: italic; font-size: 1.25rem; border: 1.5px solid #fed7aa; }
+.bkl--melbet    { background: #111827; color: #fbbf24; font-size: .95rem; }
+.bkl--betcity   { background: linear-gradient(90deg, #1d4ed8, #3b82f6); color: #fff; font-style: italic; font-size: .95rem; }
+.bkl--marathon  { background: #fff; color: #dc2626; font-size: .9rem; border: 1.5px solid #fecaca; }
+.bkl--leon      { background: #111827; color: #e5e7eb; font-size: 1rem; }
+.bkl--leon .bkl-accent { color: #fbbf24; }
+.bkl--fonbet    { background: #fff; color: #ea580c; font-size: 1.15rem; font-style: italic; font-weight: 900; border: 1.5px solid #fed7aa; }
+.bkl--bettery   { background: #fff; color: #1e293b; font-size: 1rem; border: 1.5px solid #e2e8f0; }
+.bkl--ligastavok { background: #16a34a; color: #fff; font-size: .8rem; padding: 0 10px; border-radius: 8px; }
+.bkl--betboom   { background: #1e3a8a; color: #fff; font-size: 1rem; }
+.bkl--winline   { background: #111827; color: #fff; font-size: .9rem; }
+.bkl--winline .bkl-circle { color: #f97316; }
+.bkl--tennisi   { background: #dc2626; color: #fff; font-size: .85rem; border-radius: 20px; }
+.bkl--tennisi .bkl-circle { color: #fbbf24; }
+.bkl--olimp     { background: #fff; color: #1d4ed8; font-size: 1.1rem; font-weight: 900; border: 1.5px solid #bfdbfe; }
+
+/* ── Stats ── */
+.bk-rank-stats {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.bk-rank-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 64px;
+}
+
+.bk-rank-stat-val {
+  font-size: .9375rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.bk-rank-stat-lbl {
+  font-size: .6875rem;
+  color: #94a3b8;
+}
+
+.bk-rank-stat-excl {
+  font-size: .6875rem;
+  color: #ef4444;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Actions ── */
+.bk-rank-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.bk-rank-btn-review {
+  padding: 9px 22px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-weight: 600;
+  font-size: .875rem;
+  text-decoration: none;
+  transition: border-color .15s, background .15s, color .15s;
+  white-space: nowrap;
+}
+
+.bk-rank-btn-review:hover {
+  border-color: #6b7280;
+  background: #f9fafb;
+  color: #111827;
+  text-decoration: none;
+}
+
+.bk-rank-btn-dl {
+  padding: 9px 24px;
+  border-radius: 8px;
+  background: #16a34a;
+  color: #fff;
+  font-weight: 700;
+  font-size: .875rem;
+  text-decoration: none;
+  transition: background .15s, transform .15s, box-shadow .15s;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(22,163,74,.28);
+}
+
+.bk-rank-btn-dl:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(22,163,74,.38);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Meta row ── */
+.bk-rank-meta {
+  padding: 8px 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+}
+
+.bk-rank-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8125rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.bk-rank-more {
+  font-size: .8125rem;
+  color: #64748b;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color .15s;
+  margin-left: auto;
+}
+
+.bk-rank-more:hover {
+  color: #1e293b;
+  text-decoration: none;
+}
+
+.bk-rank-more-icon {
+  font-size: .7em;
+  opacity: .7;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1100px) {
   .bk-grid {
@@ -563,6 +774,9 @@
   }
   .bk-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .bk-rank-stats {
+    gap: 14px;
   }
 }
 
@@ -599,6 +813,38 @@
   .bk-btn--cta {
     width: 100%;
   }
+  .bk-rank-main {
+    flex-wrap: wrap;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .bk-rank-logo-wrap {
+    width: 110px;
+    min-width: 110px;
+  }
+  .bkl {
+    height: 38px;
+    font-size: .875rem;
+    padding: 0 8px;
+  }
+  .bk-rank-stats {
+    flex: 1 1 auto;
+    gap: 10px;
+  }
+  .bk-rank-actions {
+    width: 100%;
+    order: 3;
+  }
+  .bk-rank-btn-review,
+  .bk-rank-btn-dl {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+  .bk-rank-meta {
+    padding: 8px 16px 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -620,5 +866,25 @@
   }
   .bk-card__footer {
     padding: 10px 12px 12px;
+  }
+  .bk-rank-main {
+    padding: 12px;
+    gap: 8px;
+  }
+  .bk-rank-stats {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bk-rank-stat {
+    min-width: 56px;
+  }
+  .bk-rank-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 8px 12px 10px;
+  }
+  .bk-rank-more {
+    margin-left: 0;
   }
 }
