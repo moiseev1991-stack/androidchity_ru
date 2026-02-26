@@ -16,7 +16,18 @@ body.category .post-card,
   opacity: 1 !important;
   visibility: visible !important;
   transform: none !important;
+  animation: none !important;
 }
+/* Сброс z-index: карточки не должны уходить за другие блоки */
+.post-card,
+.post-card--small,
+.post-card--grid,
+.w-animate,
+[data-animate-style] {
+  position: relative !important;
+  z-index: 1 !important;
+}
+/* Контейнер карточек — явный stacking context */
 #main .post-cards,
 .content-area .post-cards,
 .site-main .post-cards,
@@ -26,6 +37,14 @@ body .post-cards {
   gap: 1rem 1.25rem !important;
   min-height: 1px !important;
   overflow: visible !important;
+  position: relative !important;
+  z-index: 0 !important;
+}
+/* Секции главной страницы — изоляция stacking context */
+.home-section {
+  position: relative !important;
+  z-index: 0 !important;
+  isolation: isolate !important;
 }
 @media (max-width: 768px) {
   #main .post-cards,
