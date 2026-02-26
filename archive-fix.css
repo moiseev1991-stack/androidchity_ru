@@ -22,18 +22,10 @@ body.category .post-card,
 .site-main .post-cards,
 body .post-cards {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 1rem 1.25rem !important;
   min-height: 1px !important;
   overflow: visible !important;
-}
-@media (max-width: 1200px) {
-  #main .post-cards,
-  .content-area .post-cards,
-  .site-main .post-cards,
-  body .post-cards {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
 }
 @media (max-width: 768px) {
   #main .post-cards,
@@ -58,14 +50,14 @@ a.page-numbers:hover {
 }
 .post-card__title a,
 .post-card a,
-#main a,
+#main a:not(.bk-rank-btn-review):not(.bk-rank-btn-dl):not(.bki-btn-dl):not(.bki-btn-site):not(.bki-bonus-btn):not(.bk-rank-more):not(.bk-hero__cta),
 .content-area a {
   color: #0066cc !important;
   text-decoration: underline !important;
 }
 .post-card__title a:hover,
 .post-card a:hover,
-#main a:hover,
+#main a:not(.bk-rank-btn-review):not(.bk-rank-btn-dl):not(.bki-btn-dl):not(.bki-btn-site):not(.bki-bonus-btn):not(.bk-rank-more):not(.bk-hero__cta):hover,
 .content-area a:hover {
   color: #004499 !important;
 }/* «Вам также может понравиться» — карточки строками (несколько в ряд) */
@@ -76,18 +68,10 @@ a.page-numbers:hover {
 #related-posts .post-cards.post-cards--vertical,
 .related-posts .post-cards.post-cards--vertical {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 1rem 1.25rem !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
-}
-@media (max-width: 1200px) {
-  #related-posts .post-cards,
-  .related-posts .post-cards,
-  #related-posts .post-cards--vertical,
-  .related-posts .post-cards--vertical {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
 }
 @media (max-width: 768px) {
   #related-posts .post-cards,
@@ -109,15 +93,8 @@ a.page-numbers:hover {
 .post-cards--grid,
 .post-cards--vertical {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 1rem 1.25rem !important;
-}
-@media (max-width: 1200px) {
-  .post-cards--small,
-  .post-cards--grid,
-  .post-cards--vertical {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
 }
 @media (max-width: 768px) {
   .post-cards--small,
