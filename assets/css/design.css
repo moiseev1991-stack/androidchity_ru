@@ -225,6 +225,17 @@ nav.home-nav {
   color: #713f12 !important;
 }
 
+/* ── Home Page H1 ── */
+.home-page-h1 {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: var(--c-text) !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -.02em;
+}
+
 /* ── Section Headings ── */
 .home-main h2 {
   font-size: 1.1rem !important;
