@@ -1,0 +1,189 @@
+/* ============================================================
+   RESPONSIVE — Media queries
+   ============================================================ */
+
+/* ── 1024px – Desktop narrow / Tablet landscape ───────────── */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 300;
+    overflow-y: auto;
+    border-right: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .main {
+    padding-left: 0;
+  }
+
+  .filters-toggle {
+    display: inline-flex;
+  }
+
+  .site-footer__nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── 768px – Tablet portrait / Large mobile ───────────────── */
+@media (max-width: 768px) {
+  /* Header: 2-row layout */
+  .site-header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .site-header__inner {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 10px;
+  }
+
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .header-burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* Sidebar sticky offset for taller header */
+  .sidebar {
+    top: 0;
+  }
+
+  /* Cards: 2 columns */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Wide grid: single column */
+  .wide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Layout */
+  .layout {
+    padding: 0 12px;
+  }
+
+  .main {
+    padding: 16px 0 32px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 32px 16px 28px;
+  }
+
+  .hero__title {
+    font-size: 22px;
+  }
+
+  /* BK Banner */
+  .bk-banner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Footer */
+  .site-footer__nav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Pagination */
+  .pagination__btn.hide-mobile {
+    display: none;
+  }
+
+  /* Post */
+  .post-image {
+    max-width: 100%;
+  }
+
+  .download-btn {
+    max-width: 100%;
+  }
+
+  /* Post meta wrap */
+  .post-meta {
+    gap: 6px;
+  }
+}
+
+/* ── 480px – Small mobile ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .hero__search {
+    height: 44px;
+  }
+
+  .hero__search-btn {
+    padding: 0 14px;
+  }
+
+  .hero__tags {
+    gap: 6px;
+  }
+
+  .hero__tag {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .filter-bar__sort {
+    display: none;
+  }
+
+  /* Footer single column */
+  .site-footer__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .bk-banner {
+    padding: 14px;
+  }
+
+  .bk-banner__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── 320px – Minimum supported ───────────────────────────── */
+@media (max-width: 320px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html {
+    font-size: 15px;
+  }
+}
