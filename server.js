@@ -544,4 +544,8 @@ function tryListen(port) {
   });
 }
 
-tryListen(parseInt(process.env.PORT, 10) || 8080);
+if (require.main === module) {
+  tryListen(parseInt(process.env.PORT, 10) || 8080);
+}
+
+module.exports = { processHead, processLayout, processImages, blockPushNotifications, buildSidebarHTML };

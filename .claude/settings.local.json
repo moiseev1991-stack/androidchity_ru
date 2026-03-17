@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8090/templates/home.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8090/templates/home.php)",
+      "Bash(curl -s http://127.0.0.1:8080/)",
+      "Bash(curl -s http://127.0.0.1:8081/ -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s http://127.0.0.1:8081/)",
+      "Bash(tasklist)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(taskkill -F -IM node.exe)",
+      "Bash(node server.js)",
+      "Bash(curl -s http://127.0.0.1:8080/category/mody/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/css/base.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/css/layout.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/css/components.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/css/hero.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/css/responsive.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/js/ui.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/js/search.js)",
+      "Bash(python3 -c \"import sys; html=sys.stdin.read\\(\\); start=html.find\\(''''<head''''\\); end=html.find\\(''''</head>''''\\)+7; print\\(html[start:end]\\)\")",
+      "Bash(curl -s http://127.0.0.1:8080/2024/01/13/avatar-world-vzlom-vse-otkryto/)",
+      "Bash(curl -s http://127.0.0.1:8080/skachat-bk/)",
+      "Bash(node scripts/bake-design.js --dry-run)",
+      "Bash(node scripts/bake-design.js)"
+    ]
+  }
+}
