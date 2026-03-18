@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- SEO -->
   <title><?= htmlspecialchars($meta['title'] ?? 'Android Читы — APK игры, моды, взломы') ?></title>
@@ -23,11 +24,11 @@
   <meta property="og:image"       content="<?= htmlspecialchars($meta['image']) ?>">
   <?php endif; ?>
 
-  <!-- Fonts -->
+  <!-- Fonts (non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" onload="this.rel='stylesheet'"
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
   </noscript>
@@ -53,17 +54,8 @@
 
 <?php include __DIR__ . '/partials/footer.php'; ?>
 
-<!-- Mobile menu overlay -->
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Навигация">
-  <div class="mobile-menu__header">
-    <span class="site-logo">Android<span>Читы</span></span>
-    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть">✕</button>
-  </div>
-  <div class="mobile-menu__body">
-    <?php include __DIR__ . '/partials/sidebar.php'; ?>
-  </div>
-</div>
+<!-- Sidebar overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <!-- JS -->
 <script src="/assets/js/ui.js" defer></script>

@@ -1,71 +1,43 @@
 /**
- * ui.js — Mobile menu, filters toggle, scroll behaviour
+ * ui.js — Mobile sidebar, filters toggle, scroll behaviour
  * Vanilla JS, no dependencies
  */
 (function () {
   'use strict';
 
-  /* ── Mobile Menu ─────────────────────────────────────── */
-  const burger      = document.getElementById('burgerBtn');
-  const mobileMenu  = document.getElementById('mobileMenu');
-  const overlay     = document.getElementById('mobileOverlay');
-  const closeBtn    = document.getElementById('mobileMenuClose');
+  /* ── Mobile Sidebar ───────────────────────────────────── */
+  const burgerBtn      = document.getElementById('burgerBtn');
+  const sidebar        = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const sidebarClose   = document.getElementById('sidebarClose');
 
-  function openMenu() {
-    if (!mobileMenu) return;
-    mobileMenu.classList.add('open');
-    overlay && overlay.classList.add('open');
+  function openSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.add('open');
+    sidebarOverlay && sidebarOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
-    burger && burger.setAttribute('aria-expanded', 'true');
-    closeBtn && closeBtn.focus();
+    burgerBtn && burgerBtn.setAttribute('aria-expanded', 'true');
+    sidebarClose && sidebarClose.focus();
   }
 
-  function closeMenu() {
-    if (!mobileMenu) return;
-    mobileMenu.classList.remove('open');
-    overlay && overlay.classList.remove('open');
+  function closeSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.remove('open');
+    sidebarOverlay && sidebarOverlay.classList.remove('open');
     document.body.style.overflow = '';
-    burger && burger.setAttribute('aria-expanded', 'false');
-    burger && burger.focus();
+    burgerBtn && burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn && burgerBtn.focus();
   }
 
-  burger   && burger.addEventListener('click', openMenu);
-  overlay  && overlay.addEventListener('click', closeMenu);
-  closeBtn && closeBtn.addEventListener('click', closeMenu);
+  burgerBtn      && burgerBtn.addEventListener('click', openSidebar);
+  sidebarClose   && sidebarClose.addEventListener('click', closeSidebar);
+  sidebarOverlay && sidebarOverlay.addEventListener('click', closeSidebar);
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-      closeMenu();
+    if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
+      closeSidebar();
     }
   });
-
-  /* ── Filters Toggle (sidebar on tablet) ──────────────── */
-  const filtersToggle = document.getElementById('filtersToggle');
-  const sidebar       = document.getElementById('sidebar');
-
-  if (filtersToggle && sidebar) {
-    filtersToggle.addEventListener('click', function () {
-      const isOpen = sidebar.classList.toggle('open');
-      filtersToggle.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) {
-        overlay && overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      } else {
-        overlay && overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close sidebar via overlay
-    overlay && overlay.addEventListener('click', function () {
-      if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        filtersToggle.setAttribute('aria-expanded', 'false');
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  }
 
   /* ── Sticky header shadow ────────────────────────────── */
   const header = document.querySelector('.site-header');
@@ -95,18 +67,6 @@
     if (href && href !== '/' && currentPath.startsWith(href)) {
       link.classList.add('active');
     }
-  });
-
-  /* ── Scroll-row buttons (if any) ─────────────────────── */
-  document.querySelectorAll('.js-scroll-row').forEach(function (row) {
-    const prev = row.parentElement && row.parentElement.querySelector('.js-scroll-prev');
-    const next = row.parentElement && row.parentElement.querySelector('.js-scroll-next');
-    next && next.addEventListener('click', function () {
-      row.scrollBy({ left: 240, behavior: 'smooth' });
-    });
-    prev && prev.addEventListener('click', function () {
-      row.scrollBy({ left: -240, behavior: 'smooth' });
-    });
   });
 
   /* ── Download button tracking ────────────────────────── */

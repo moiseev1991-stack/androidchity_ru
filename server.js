@@ -39,21 +39,13 @@ const NEW_HEADER = `
 <header class="site-header" id="newSiteHeader" role="banner">
   <div class="site-header__inner">
     <a href="/" class="site-logo">Android<span>Читы</span></a>
-    <div class="header-search" role="search">
-      <form class="header-search__form" action="/search/" method="get">
-        <span class="header-search__icon">${SEARCH_ICON_SVG}</span>
-        <input type="search" name="q" id="headerSearchInput" class="header-search__input" placeholder="Найти игру, мод, чит..." autocomplete="off" aria-label="Поиск">
-        <button type="submit" class="header-search__submit">Найти</button>
-      </form>
-      <div class="search-dropdown" id="headerSearchDropdown" aria-live="polite"></div>
-    </div>
     <nav class="header-nav" aria-label="Главное меню">
       <a href="/category/novinki/" class="header-nav__link">Новинки</a>
       <a href="/category/mody/"    class="header-nav__link">Моды</a>
       <a href="/category/chity/"   class="header-nav__link">Читы</a>
       <a href="/skachat-bk/"       class="header-nav__link header-nav__link--bk">🏆 Скачать БК</a>
     </nav>
-    <button class="header-burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+    <button class="header-burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
       <span class="header-burger__line"></span>
       <span class="header-burger__line"></span>
       <span class="header-burger__line"></span>
@@ -101,7 +93,8 @@ const SIDEBAR_GROUPS = [
 ];
 
 function buildSidebarHTML(urlPath) {
-  let html = `<nav class="sidebar" id="sidebar" aria-label="Категории">`;
+  let html = `<nav class="sidebar" id="sidebar" aria-label="Категории">`
+           + `<button class="sidebar__close" id="sidebarClose" aria-label="Закрыть меню">✕ Закрыть</button>`;
   for (const [title, links] of SIDEBAR_GROUPS) {
     html += `<div class="sidebar__group"><div class="sidebar__group-title">${title}</div>`;
     for (const [href, icon, label, count] of links) {
@@ -120,16 +113,8 @@ function buildSidebarHTML(urlPath) {
   return html;
 }
 
-function buildMobileMenuHTML(sidebarHTML) {
-  return `
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Навигация">
-  <div class="mobile-menu__header">
-    <span class="site-logo">Android<span>Читы</span></span>
-    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть меню">✕</button>
-  </div>
-  <div class="mobile-menu__body">${sidebarHTML}</div>
-</div>`;
+function buildSidebarOverlayHTML() {
+  return `<div class="sidebar-overlay" id="sidebarOverlay"></div>`;
 }
 
 const NEW_FOOTER = `
@@ -200,7 +185,9 @@ const HERO_HTML = `
 const NEW_CSS_HEAD = `
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="/assets/css/base.css">
 <link rel="stylesheet" href="/assets/css/layout.css">
 <link rel="stylesheet" href="/assets/css/components.css">
@@ -217,7 +204,10 @@ footer#colophon,.site-footer-container,
 #global-footer,.global-footer,
 footer.site-footer:not(#newSiteFooter) { display:none!important; }
 .mobile-menu-overlay,
-.mobile-menu:not(#mobileMenu) { display:none!important; }
+.mobile-menu,
+.mobile-overlay,
+.mobile-menu__body,
+.mobile-menu__header { display:none!important; }
 /* Reset WP containers */
 body{background:var(--color-bg-page)!important;margin:0!important;padding:0!important;}
 #page{background:transparent!important;margin:0!important;padding:0!important;max-width:100%!important;}
@@ -308,8 +298,8 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
 /* Related posts section */
 #related-posts,.related-posts{margin-top:32px!important;}
 #related-posts .post-cards,.related-posts .post-cards{margin-top:14px!important;}
-/* Mobile sidebar in mobile menu: no sticky */
-#mobileMenu .sidebar{position:static!important;height:auto!important;border:none!important;overflow:visible!important;}
+/* Sidebar overlay hidden by default */
+.sidebar-overlay{display:none;}
 </style>`;
 
 const JS_INJECT = `
@@ -351,28 +341,38 @@ function processHead(html) {
   return out;
 }
 
-/** Перестраиваем layout: новый хедер, сайдбар, футер, мобильное меню */
+/** Перестраиваем layout: новый хедер, сайдбар, футер, overlay */
 function processLayout(html, urlPath) {
   if (html.includes('id="newSiteHeader"')) return html;
 
   const isHome = urlPath === '/' || urlPath === '/index.html' || urlPath === '';
   const sidebar = buildSidebarHTML(urlPath);
-  const mobileMenu = buildMobileMenuHTML(sidebar);
+  const sidebarOverlay = buildSidebarOverlayHTML();
 
   // Убираем старые header/footer/nav инъекции из body
   let out = html;
 
   // Старый injected footer
   out = out.replace(/<footer[^>]*id="global-footer"[^>]*>[\s\S]*?<\/footer>/gi, '');
-  // Старый injected mobile menu
-  out = out.replace(/<div class="mobile-menu-overlay"[^>]*>[\s\S]*?<\/div>\s*<div class="mobile-menu"[^>]*>[\s\S]*?<\/div>/gi, '');
-  out = out.replace(/<div class="mobile-menu-overlay"[^>]*><\/div>/gi, '');
+  // Убираем старый mobile overlay (пустой div)
+  out = out.replace(/<div[^>]*(?:class="mobile-overlay"|id="mobileOverlay")[^>]*><\/div>\s*/gi, '');
+  // Убираем mobile-menu__body с сайдбаром внутри (сирота от неполного reset)
+  out = out.replace(/<div[^>]*class="[^"]*mobile-menu__body[^"]*"[^>]*>[\s\S]*?<\/nav>\s*<\/div>\s*/gi, '');
+  // Убираем полный mobile-menu (если остался целым)
+  out = out.replace(/<div[^>]*(?:class="[^"]*mobile-menu[^"]*"|id="mobileMenu")[^>]*>[\s\S]*?<\/nav>\s*<\/div>\s*<\/div>\s*/gi, '');
+  // Убираем mobile-menu-overlay (альтернативный class)
+  out = out.replace(/<div[^>]*class="[^"]*mobile-menu-overlay[^"]*"[^>]*><\/div>\s*/gi, '');
   // Старый injected mobile-menu-js
   out = out.replace(/<script id="mobile-menu-js">[\s\S]*?<\/script>/gi, '');
   // archive-fix js
   out = out.replace(/<script id="archive-fix-js">[\s\S]*?<\/script>/gi, '');
   // Старый injected lws closing divs
   out = out.replace(/(<\/main>)?<\/div><\/div><\/div><\/div><\/div><\/div><\/div><!-- \/lws -->/g, '');
+
+  // Удаляем блок «Популярные разделы» (горизонтальный скролл с иконками)
+  out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?js-scroll-row(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
+  // Удаляем блок «Популярные категории» (сетка кнопок-пилюль)
+  out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?categories-grid(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
 
   const hero = isHome ? HERO_HTML : '';
 
@@ -389,7 +389,7 @@ function processLayout(html, urlPath) {
 
   // Закрываем layout перед </body>
   out = out.replace(/(<\/body\s*>)/i,
-    `\n${layoutClose}\n${NEW_FOOTER}\n${mobileMenu}\n${JS_INJECT}\n$1`);
+    `\n${layoutClose}\n${NEW_FOOTER}\n${sidebarOverlay}\n${JS_INJECT}\n$1`);
 
   return out;
 }

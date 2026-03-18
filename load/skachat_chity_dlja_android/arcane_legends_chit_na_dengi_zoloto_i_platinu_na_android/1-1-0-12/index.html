@@ -77,9 +77,19 @@
 
 <link type="text/css" rel="stylesheet" href="/.s/src/social.css"><script type="text/javascript">var advideo_playlist_id=9999;</script><script type="text/javascript" src="/js.advideo.ru/aro.js" async></script><script src="/ucounter.ucoz.net/?src=ss2&amp;data=Mjo5OjM4OjEwOTo1MzoyMjoyOTo5Mjo4NjoyNjo4ODo2MDoxNTowOjA6MTA6MTExOjIwOjUwOjI4OjMxOjIzOjQ3OjE2OjkzOjExNzoxMDA6OTE6NzE6MTE6MzI6MTA5OjUzOjEwOjgwOjgwOjY4OjcyOjg6MTIxOjk2OjgxOjg1OjgxOjk3OjIwOjUwOjE2OjI1OjYyOjM6MTM6ODg6NjA6MTA5OjE1OjE5OjEzOjU1OjIwOjUwOjE2OjI1OjYyOjIwOjIyOjg0OjExNzozNzoxMDoxNDoxODoxMTY6ODM6NDU6MjI6MTA6NjI6NDoxMDo0OjEyMToxMDA6OTM6ODc6ODk6MTA3OjM6MTIwOjc3Ojg0OjcxOjM6MTY6Nzc6MjM6NDk6MTM6MTM6Mjg6MTExOjIwOjUwOjE2OjI1OjYyOjE4OjI0Ojg3OjQ3OjEwOTo3OToxODoxOjM4OjEwOTo1NToxNzo0OjU6Nzc6OTU6NzQ6MzM6MzY6NTQ6NToxMDozODo4NDoxMjQ6OTU6MzA6ODo0OjM4Ojg1OjM4OjU1Ojg0OjE5OjI5OjExNjo2NTo0MDoxMzo1MDozOjA6MjI6NzQ6MTE3Ojk2&amp;r64=&amp;cid=A1B100&amp;cb=0.162451742811609" async></script>
 
+
+
+
+<noscript></noscript>
+
+
+<noscript></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Manrope:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="/assets/css/base.css">
 <link rel="stylesheet" href="/assets/css/layout.css">
 <link rel="stylesheet" href="/assets/css/components.css">
@@ -96,7 +106,10 @@ footer#colophon,.site-footer-container,
 #global-footer,.global-footer,
 footer.site-footer:not(#newSiteFooter) { display:none!important; }
 .mobile-menu-overlay,
-.mobile-menu:not(#mobileMenu) { display:none!important; }
+.mobile-menu,
+.mobile-overlay,
+.mobile-menu__body,
+.mobile-menu__header { display:none!important; }
 /* Reset WP containers */
 body{background:var(--color-bg-page)!important;margin:0!important;padding:0!important;}
 #page{background:transparent!important;margin:0!important;padding:0!important;max-width:100%!important;}
@@ -187,8 +200,8 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
 /* Related posts section */
 #related-posts,.related-posts{margin-top:32px!important;}
 #related-posts .post-cards,.related-posts .post-cards{margin-top:14px!important;}
-/* Mobile sidebar in mobile menu: no sticky */
-#mobileMenu .sidebar{position:static!important;height:auto!important;border:none!important;overflow:visible!important;}
+/* Sidebar overlay hidden by default */
+.sidebar-overlay{display:none;}
 </style></head>
 
 <body>
@@ -196,21 +209,13 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
 <header class="site-header" id="newSiteHeader" role="banner">
   <div class="site-header__inner">
     <a href="/" class="site-logo">Android<span>Читы</span></a>
-    <div class="header-search" role="search">
-      <form class="header-search__form" action="/search/" method="get">
-        <span class="header-search__icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-        <input type="search" name="q" id="headerSearchInput" class="header-search__input" placeholder="Найти игру, мод, чит..." autocomplete="off" aria-label="Поиск">
-        <button type="submit" class="header-search__submit">Найти</button>
-      </form>
-      <div class="search-dropdown" id="headerSearchDropdown" aria-live="polite"></div>
-    </div>
     <nav class="header-nav" aria-label="Главное меню">
       <a href="/category/novinki/" class="header-nav__link">Новинки</a>
       <a href="/category/mody/"    class="header-nav__link">Моды</a>
       <a href="/category/chity/"   class="header-nav__link">Читы</a>
       <a href="/skachat-bk/"       class="header-nav__link header-nav__link--bk">🏆 Скачать БК</a>
     </nav>
-    <button class="header-burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+    <button class="header-burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
       <span class="header-burger__line"></span>
       <span class="header-burger__line"></span>
       <span class="header-burger__line"></span>
@@ -220,8 +225,18 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
 
 
 <div class="layout">
-  <nav class="sidebar" id="sidebar" aria-label="Категории"><div class="sidebar__group"><div class="sidebar__group-title">Тип</div><a href="/category/novinki/" class="sidebar__link"><span class="sidebar__icon">🆕</span><span class="sidebar__label">Новинки</span><span class="sidebar__count">64</span></a><a href="/category/mody/" class="sidebar__link"><span class="sidebar__icon">⚙️</span><span class="sidebar__label">Моды</span><span class="sidebar__count">480</span></a><a href="/category/chity/" class="sidebar__link"><span class="sidebar__icon">🃏</span><span class="sidebar__label">Читы</span><span class="sidebar__count">210</span></a><a href="/category/vzlomy/" class="sidebar__link"><span class="sidebar__icon">🔓</span><span class="sidebar__label">Взломы</span><span class="sidebar__count">195</span></a><a href="/" class="sidebar__link"><span class="sidebar__icon">🎮</span><span class="sidebar__label">Все игры</span><span class="sidebar__count">1 200</span></a><a href="/category/top/" class="sidebar__link"><span class="sidebar__icon">🔥</span><span class="sidebar__label">Топ</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Жанры</div><a href="/category/shutery/" class="sidebar__link"><span class="sidebar__icon">🔫</span><span class="sidebar__label">Шутеры</span></a><a href="/category/rolevye/" class="sidebar__link"><span class="sidebar__icon">⚔️</span><span class="sidebar__label">Ролевые</span></a><a href="/category/strategii/" class="sidebar__link"><span class="sidebar__icon">♟️</span><span class="sidebar__label">Стратегии</span></a><a href="/category/gonki/" class="sidebar__link"><span class="sidebar__icon">🏎️</span><span class="sidebar__label">Гонки</span></a><a href="/category/golovolomki/" class="sidebar__link"><span class="sidebar__icon">🧩</span><span class="sidebar__label">Головоломки</span></a><a href="/category/arkady/" class="sidebar__link"><span class="sidebar__icon">👾</span><span class="sidebar__label">Аркады</span></a><a href="/category/anime/" class="sidebar__link"><span class="sidebar__icon">⛩️</span><span class="sidebar__label">Аниме</span></a><a href="/category/zombi/" class="sidebar__link"><span class="sidebar__icon">🧟</span><span class="sidebar__label">Зомби</span></a><a href="/category/simulyatory/" class="sidebar__link"><span class="sidebar__icon">🕹️</span><span class="sidebar__label">Симуляторы</span></a><a href="/category/ekshen/" class="sidebar__link"><span class="sidebar__icon">💥</span><span class="sidebar__label">Экшен</span></a><a href="/category/horror/" class="sidebar__link"><span class="sidebar__icon">👻</span><span class="sidebar__label">Хоррор</span></a><a href="/category/fentezi/" class="sidebar__link"><span class="sidebar__icon">🧙</span><span class="sidebar__label">Фэнтези</span></a><a href="/category/dlya-detey/" class="sidebar__link"><span class="sidebar__icon">👶</span><span class="sidebar__label">Для детей</span></a><a href="/category/dlya-vzroslyh/" class="sidebar__link"><span class="sidebar__icon">🔞</span><span class="sidebar__label">Для взрослых</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Игры</div><a href="/category/stendoff-2/" class="sidebar__link"><span class="sidebar__icon">🎯</span><span class="sidebar__label">Standoff 2</span></a><a href="/category/toka-boka/" class="sidebar__link"><span class="sidebar__icon">🏠</span><span class="sidebar__label">Toca Boca</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Приложения</div><a href="/category/fotoredaktory/" class="sidebar__link"><span class="sidebar__icon">📷</span><span class="sidebar__label">Фоторедакторы</span></a><a href="/category/instrumenty/" class="sidebar__link"><span class="sidebar__icon">🔧</span><span class="sidebar__label">Инструменты</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Ещё</div><a href="/skachat-bk/" class="sidebar__link"><span class="sidebar__icon">🏆</span><span class="sidebar__label">Скачать БК</span></a><a href="/download/" class="sidebar__link"><span class="sidebar__icon">🛡️</span><span class="sidebar__label">Проверка файлов</span></a></div></nav>
+  <nav class="sidebar" id="sidebar" aria-label="Категории"><button class="sidebar__close" id="sidebarClose" aria-label="Закрыть меню">✕ Закрыть</button><div class="sidebar__group"><div class="sidebar__group-title">Тип</div><a href="/category/novinki/" class="sidebar__link"><span class="sidebar__icon">🆕</span><span class="sidebar__label">Новинки</span><span class="sidebar__count">64</span></a><a href="/category/mody/" class="sidebar__link"><span class="sidebar__icon">⚙️</span><span class="sidebar__label">Моды</span><span class="sidebar__count">480</span></a><a href="/category/chity/" class="sidebar__link"><span class="sidebar__icon">🃏</span><span class="sidebar__label">Читы</span><span class="sidebar__count">210</span></a><a href="/category/vzlomy/" class="sidebar__link"><span class="sidebar__icon">🔓</span><span class="sidebar__label">Взломы</span><span class="sidebar__count">195</span></a><a href="/" class="sidebar__link"><span class="sidebar__icon">🎮</span><span class="sidebar__label">Все игры</span><span class="sidebar__count">1 200</span></a><a href="/category/top/" class="sidebar__link"><span class="sidebar__icon">🔥</span><span class="sidebar__label">Топ</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Жанры</div><a href="/category/shutery/" class="sidebar__link"><span class="sidebar__icon">🔫</span><span class="sidebar__label">Шутеры</span></a><a href="/category/rolevye/" class="sidebar__link"><span class="sidebar__icon">⚔️</span><span class="sidebar__label">Ролевые</span></a><a href="/category/strategii/" class="sidebar__link"><span class="sidebar__icon">♟️</span><span class="sidebar__label">Стратегии</span></a><a href="/category/gonki/" class="sidebar__link"><span class="sidebar__icon">🏎️</span><span class="sidebar__label">Гонки</span></a><a href="/category/golovolomki/" class="sidebar__link"><span class="sidebar__icon">🧩</span><span class="sidebar__label">Головоломки</span></a><a href="/category/arkady/" class="sidebar__link"><span class="sidebar__icon">👾</span><span class="sidebar__label">Аркады</span></a><a href="/category/anime/" class="sidebar__link"><span class="sidebar__icon">⛩️</span><span class="sidebar__label">Аниме</span></a><a href="/category/zombi/" class="sidebar__link"><span class="sidebar__icon">🧟</span><span class="sidebar__label">Зомби</span></a><a href="/category/simulyatory/" class="sidebar__link"><span class="sidebar__icon">🕹️</span><span class="sidebar__label">Симуляторы</span></a><a href="/category/ekshen/" class="sidebar__link"><span class="sidebar__icon">💥</span><span class="sidebar__label">Экшен</span></a><a href="/category/horror/" class="sidebar__link"><span class="sidebar__icon">👻</span><span class="sidebar__label">Хоррор</span></a><a href="/category/fentezi/" class="sidebar__link"><span class="sidebar__icon">🧙</span><span class="sidebar__label">Фэнтези</span></a><a href="/category/dlya-detey/" class="sidebar__link"><span class="sidebar__icon">👶</span><span class="sidebar__label">Для детей</span></a><a href="/category/dlya-vzroslyh/" class="sidebar__link"><span class="sidebar__icon">🔞</span><span class="sidebar__label">Для взрослых</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Игры</div><a href="/category/stendoff-2/" class="sidebar__link"><span class="sidebar__icon">🎯</span><span class="sidebar__label">Standoff 2</span></a><a href="/category/toka-boka/" class="sidebar__link"><span class="sidebar__icon">🏠</span><span class="sidebar__label">Toca Boca</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Приложения</div><a href="/category/fotoredaktory/" class="sidebar__link"><span class="sidebar__icon">📷</span><span class="sidebar__label">Фоторедакторы</span></a><a href="/category/instrumenty/" class="sidebar__link"><span class="sidebar__icon">🔧</span><span class="sidebar__label">Инструменты</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Ещё</div><a href="/skachat-bk/" class="sidebar__link"><span class="sidebar__icon">🏆</span><span class="sidebar__label">Скачать БК</span></a><a href="/download/" class="sidebar__link"><span class="sidebar__icon">🛡️</span><span class="sidebar__label">Проверка файлов</span></a></div></nav>
   <div class="main" id="main-content">
+
+
+
+
+
+
+
+
+
+
 <div id="utbr8214" rel="s42"></div>
  <script type="text/javascript">if(window.redirect){redirect();}</script><table cellpadding="10" cellspacing="0" border="0" class="dataBar" align="center">
  <tr>
@@ -647,6 +662,8 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
  </tr>
 </tbody></table>
 
+  </div>
+
 
   </div><!-- /main -->
 </div><!-- /layout -->
@@ -691,15 +708,7 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
     </div>
   </div>
 </footer>
-
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Навигация">
-  <div class="mobile-menu__header">
-    <span class="site-logo">Android<span>Читы</span></span>
-    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть меню">✕</button>
-  </div>
-  <div class="mobile-menu__body"><nav class="sidebar" id="sidebar" aria-label="Категории"><div class="sidebar__group"><div class="sidebar__group-title">Тип</div><a href="/category/novinki/" class="sidebar__link"><span class="sidebar__icon">🆕</span><span class="sidebar__label">Новинки</span><span class="sidebar__count">64</span></a><a href="/category/mody/" class="sidebar__link"><span class="sidebar__icon">⚙️</span><span class="sidebar__label">Моды</span><span class="sidebar__count">480</span></a><a href="/category/chity/" class="sidebar__link"><span class="sidebar__icon">🃏</span><span class="sidebar__label">Читы</span><span class="sidebar__count">210</span></a><a href="/category/vzlomy/" class="sidebar__link"><span class="sidebar__icon">🔓</span><span class="sidebar__label">Взломы</span><span class="sidebar__count">195</span></a><a href="/" class="sidebar__link"><span class="sidebar__icon">🎮</span><span class="sidebar__label">Все игры</span><span class="sidebar__count">1 200</span></a><a href="/category/top/" class="sidebar__link"><span class="sidebar__icon">🔥</span><span class="sidebar__label">Топ</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Жанры</div><a href="/category/shutery/" class="sidebar__link"><span class="sidebar__icon">🔫</span><span class="sidebar__label">Шутеры</span></a><a href="/category/rolevye/" class="sidebar__link"><span class="sidebar__icon">⚔️</span><span class="sidebar__label">Ролевые</span></a><a href="/category/strategii/" class="sidebar__link"><span class="sidebar__icon">♟️</span><span class="sidebar__label">Стратегии</span></a><a href="/category/gonki/" class="sidebar__link"><span class="sidebar__icon">🏎️</span><span class="sidebar__label">Гонки</span></a><a href="/category/golovolomki/" class="sidebar__link"><span class="sidebar__icon">🧩</span><span class="sidebar__label">Головоломки</span></a><a href="/category/arkady/" class="sidebar__link"><span class="sidebar__icon">👾</span><span class="sidebar__label">Аркады</span></a><a href="/category/anime/" class="sidebar__link"><span class="sidebar__icon">⛩️</span><span class="sidebar__label">Аниме</span></a><a href="/category/zombi/" class="sidebar__link"><span class="sidebar__icon">🧟</span><span class="sidebar__label">Зомби</span></a><a href="/category/simulyatory/" class="sidebar__link"><span class="sidebar__icon">🕹️</span><span class="sidebar__label">Симуляторы</span></a><a href="/category/ekshen/" class="sidebar__link"><span class="sidebar__icon">💥</span><span class="sidebar__label">Экшен</span></a><a href="/category/horror/" class="sidebar__link"><span class="sidebar__icon">👻</span><span class="sidebar__label">Хоррор</span></a><a href="/category/fentezi/" class="sidebar__link"><span class="sidebar__icon">🧙</span><span class="sidebar__label">Фэнтези</span></a><a href="/category/dlya-detey/" class="sidebar__link"><span class="sidebar__icon">👶</span><span class="sidebar__label">Для детей</span></a><a href="/category/dlya-vzroslyh/" class="sidebar__link"><span class="sidebar__icon">🔞</span><span class="sidebar__label">Для взрослых</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Игры</div><a href="/category/stendoff-2/" class="sidebar__link"><span class="sidebar__icon">🎯</span><span class="sidebar__label">Standoff 2</span></a><a href="/category/toka-boka/" class="sidebar__link"><span class="sidebar__icon">🏠</span><span class="sidebar__label">Toca Boca</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Приложения</div><a href="/category/fotoredaktory/" class="sidebar__link"><span class="sidebar__icon">📷</span><span class="sidebar__label">Фоторедакторы</span></a><a href="/category/instrumenty/" class="sidebar__link"><span class="sidebar__icon">🔧</span><span class="sidebar__label">Инструменты</span></a></div><div class="sidebar__group"><div class="sidebar__group-title">Ещё</div><a href="/skachat-bk/" class="sidebar__link"><span class="sidebar__icon">🏆</span><span class="sidebar__label">Скачать БК</span></a><a href="/download/" class="sidebar__link"><span class="sidebar__icon">🛡️</span><span class="sidebar__label">Проверка файлов</span></a></div></nav></div>
-</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <script src="/assets/js/ui.js" defer></script>
 <script src="/assets/js/search.js" defer></script>

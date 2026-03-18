@@ -24,6 +24,7 @@ $dl    = !empty($post['downloads']) ? $post['downloads'] : '';
           alt="<?= htmlspecialchars($post['title'] ?? '') ?>"
           loading="lazy"
           width="300" height="300"
+          decoding="async"
         >
       <?php else: ?>
         <span class="card-placeholder"><?= $post['emoji'] ?? '🎮' ?></span>

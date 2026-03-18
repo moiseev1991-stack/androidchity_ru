@@ -15,6 +15,8 @@ function sidebarLink(string $href, string $icon, string $label, ?int $count = nu
 ?>
 <nav class="sidebar" id="sidebar" aria-label="Категории">
 
+  <button class="sidebar__close" id="sidebarClose" aria-label="Закрыть меню">✕ Закрыть</button>
+
   <div class="sidebar__group">
     <div class="sidebar__group-title">Тип</div>
     <?= sidebarLink('/games/',         '🎮', 'Все игры',  1200, $currentPath) ?>

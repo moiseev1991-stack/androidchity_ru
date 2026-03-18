@@ -73,8 +73,15 @@ function resetFile(html) {
   out = out.replace(/\n?\s*<\/div><!-- \/main -->\n?<\/div><!-- \/layout -->\n?/g, '');
   // Убираем footer
   out = out.replace(/<footer class="site-footer" id="newSiteFooter"[\s\S]*?<\/footer>\n?/g, '');
-  // Убираем mobile menu
-  out = out.replace(/<div class="mobile-overlay"[\s\S]*?<\/div>\n?<div class="mobile-menu"[\s\S]*?<\/div>\n?/g, '');
+  // Убираем mobile menu (все варианты структуры)
+  out = out.replace(/<div[^>]*id="mobileOverlay"[^>]*>[\s\S]*?<\/div>\n?/g, '');
+  out = out.replace(/<div[^>]*id="mobileMenu"[^>]*>[\s\S]*?<\/nav>\s*<\/div>\s*<\/div>\n?/g, '');
+  out = out.replace(/<div class="mobile-overlay"[^>]*><\/div>\n?/g, '');
+  out = out.replace(/<div[^>]*class="[^"]*mobile-menu__body[^"]*"[^>]*>[\s\S]*?<\/nav>\s*<\/div>\n?/g, '');
+  // Убираем sidebar-overlay (добавлено в новом дизайне)
+  out = out.replace(/<div[^>]*id="sidebarOverlay"[^>]*><\/div>\n?/g, '');
+  // Убираем preload/preconnect для шрифтов (все варианты)
+  out = out.replace(/<link[^>]*rel="preload"[^>]*fonts\.googleapis[^>]*>\n?/g, '');
   // Убираем JS
   out = out.replace(/<script src="\/assets\/js\/ui\.js" defer><\/script>\n?/g, '');
   out = out.replace(/<script src="\/assets\/js\/search\.js" defer><\/script>\n?/g, '');

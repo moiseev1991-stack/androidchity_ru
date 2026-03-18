@@ -23,6 +23,7 @@ $href  = '/games/' . ($post['slug'] ?? '') . '/';
         alt="<?= htmlspecialchars($post['title'] ?? '') ?>"
         loading="lazy"
         width="70" height="70"
+        decoding="async"
       >
     <?php else: ?>
       <div class="wide-card__img-placeholder"><?= $post['emoji'] ?? '🎮' ?></div>

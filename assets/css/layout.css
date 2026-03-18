@@ -160,6 +160,7 @@
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .header-nav__link {
@@ -250,6 +251,25 @@
 .sidebar::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 4px;
+}
+
+/* Кнопка закрытия (видна только на мобильных) */
+.sidebar__close {
+  display: none;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.sidebar__close:hover {
+  color: var(--color-text-primary);
 }
 
 .sidebar__group {
