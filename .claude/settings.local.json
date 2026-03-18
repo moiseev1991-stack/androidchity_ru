@@ -29,7 +29,8 @@
       "Bash(wmic process:*)",
       "Bash(node scripts/bake-design.js --reset)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(taskkill //F //PID 14132)"
     ]
   }
 }
