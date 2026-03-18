@@ -373,8 +373,12 @@ function processLayout(html, urlPath) {
   out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?js-scroll-row(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
   // Удаляем блок «Популярные категории» (сетка кнопок-пилюль)
   out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?categories-grid(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
-  // Удаляем старый WP сайдбар-виджет (Разделы сайта / Категории) — дублирует навигацию
+  // Удаляем старый WP сайдбар-виджет обёрнутый в <aside>
   out = out.replace(/<aside[^>]*class="[^"]*site-sidebar[^"]*"[^>]*>[\s\S]*?<\/aside>/gi, '');
+  // Удаляем bare .widget с «Разделы сайта» (прямо в контенте поста, без aside)
+  out = out.replace(/<div[^>]*class="[^"]*widget[^"]*"[^>]*>\s*<h3>\s*Разделы сайта\s*<\/h3>[\s\S]*?<\/div>/gi, '');
+  // Удаляем bare .widget с «Категории» (прямо в контенте поста)
+  out = out.replace(/<div[^>]*class="[^"]*widget[^"]*"[^>]*>\s*<h3>\s*Категории\s*<\/h3>[\s\S]*?<\/div>/gi, '');
 
   const hero = isHome ? HERO_HTML : '';
 

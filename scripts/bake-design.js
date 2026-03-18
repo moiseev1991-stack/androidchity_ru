@@ -80,6 +80,8 @@ function resetFile(html) {
   out = out.replace(/<div[^>]*class="[^"]*mobile-menu__body[^"]*"[^>]*>[\s\S]*?<\/nav>\s*<\/div>\n?/g, '');
   // Убираем sidebar-overlay (добавлено в новом дизайне)
   out = out.replace(/<div[^>]*id="sidebarOverlay"[^>]*><\/div>\n?/g, '');
+  // Убираем WP aside-виджет (site-sidebar)
+  out = out.replace(/<aside[^>]*class="[^"]*site-sidebar[^"]*"[^>]*>[\s\S]*?<\/aside>\n?/g, '');
   // Убираем preload/preconnect для шрифтов (все варианты)
   out = out.replace(/<link[^>]*rel="preload"[^>]*fonts\.googleapis[^>]*>\n?/g, '');
   // Убираем JS
