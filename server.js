@@ -373,6 +373,8 @@ function processLayout(html, urlPath) {
   out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?js-scroll-row(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
   // Удаляем блок «Популярные категории» (сетка кнопок-пилюль)
   out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?categories-grid(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
+  // Удаляем старый WP сайдбар-виджет (Разделы сайта / Категории) — дублирует навигацию
+  out = out.replace(/<aside[^>]*class="[^"]*site-sidebar[^"]*"[^>]*>[\s\S]*?<\/aside>/gi, '');
 
   const hero = isHome ? HERO_HTML : '';
 

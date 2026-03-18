@@ -23,7 +23,13 @@
       "Bash(curl -s http://127.0.0.1:8080/2024/01/13/avatar-world-vzlom-vse-otkryto/)",
       "Bash(curl -s http://127.0.0.1:8080/skachat-bk/)",
       "Bash(node scripts/bake-design.js --dry-run)",
-      "Bash(node scripts/bake-design.js)"
+      "Bash(node scripts/bake-design.js)",
+      "Bash(ls e:/cod/androidchity_ru/*.php)",
+      "Bash(taskkill //F //PID 82672 //PID 27304)",
+      "Bash(wmic process:*)",
+      "Bash(node scripts/bake-design.js --reset)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
