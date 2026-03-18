@@ -300,6 +300,11 @@ body{background:var(--color-bg-page)!important;margin:0!important;padding:0!impo
 #related-posts .post-cards,.related-posts .post-cards{margin-top:14px!important;}
 /* Sidebar overlay hidden by default */
 .sidebar-overlay{display:none;}
+/* WP виджеты «Разделы сайта» и «Категории» — стили ссылок-пилюль */
+.widget{margin:20px 0!important;padding:14px 16px!important;background:#f8f7f4!important;border:1px solid #e8e6e0!important;border-radius:10px!important;}
+.widget h3{font-size:11px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.8px!important;color:#999!important;margin:0 0 10px!important;padding:0!important;border:none!important;}
+.widget a{display:inline-block!important;margin:3px 5px 3px 0!important;padding:5px 12px!important;background:#fff!important;border:1px solid #e2e0db!important;border-radius:20px!important;font-size:12.5px!important;color:#2563eb!important;text-decoration:none!important;transition:background .15s,border-color .15s!important;}
+.widget a:hover{background:#eff6ff!important;border-color:#2563eb!important;}
 </style>`;
 
 const JS_INJECT = `
@@ -375,10 +380,6 @@ function processLayout(html, urlPath) {
   out = out.replace(/<section(?:(?!<section|<\/section>)[\s\S])*?categories-grid(?:(?!<\/section>)[\s\S])*?<\/section>/gi, '');
   // Удаляем старый WP сайдбар-виджет обёрнутый в <aside>
   out = out.replace(/<aside[^>]*class="[^"]*site-sidebar[^"]*"[^>]*>[\s\S]*?<\/aside>/gi, '');
-  // Удаляем bare .widget с «Разделы сайта» (прямо в контенте поста, без aside)
-  out = out.replace(/<div[^>]*class="[^"]*widget[^"]*"[^>]*>\s*<h3>\s*Разделы сайта\s*<\/h3>[\s\S]*?<\/div>/gi, '');
-  // Удаляем bare .widget с «Категории» (прямо в контенте поста)
-  out = out.replace(/<div[^>]*class="[^"]*widget[^"]*"[^>]*>\s*<h3>\s*Категории\s*<\/h3>[\s\S]*?<\/div>/gi, '');
 
   const hero = isHome ? HERO_HTML : '';
 
