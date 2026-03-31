@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Recreated 888Starz-style favicon mark">
+  <rect x="8" y="8" width="240" height="240" rx="28" fill="#000"/>
+  <!-- left 8 -->
+  <g fill="#e10600">
+    <circle cx="68" cy="92" r="34"/>
+    <circle cx="68" cy="164" r="34"/>
+    <rect x="34" y="92" width="68" height="72"/>
+    <!-- right 8 -->
+    <circle cx="188" cy="92" r="34"/>
+    <circle cx="188" cy="164" r="34"/>
+    <rect x="154" y="92" width="68" height="72"/>
+  </g>
+  <!-- holes in 8s -->
+  <g fill="#000">
+    <circle cx="68" cy="92" r="14"/>
+    <circle cx="68" cy="164" r="14"/>
+    <circle cx="188" cy="92" r="14"/>
+    <circle cx="188" cy="164" r="14"/>
+  </g>
+  <!-- center symbols -->
+  <path d="M128 78
+           C128 68 118 65 112 65
+           C103 65 97 72 97 80
+           C97 92 108 99 128 118
+           C148 99 159 92 159 80
+           C159 72 153 65 144 65
+           C138 65 128 68 128 78Z"
+        fill="#fff"/>
+  <path d="M128 129
+           L146 153
+           L128 177
+           L110 153Z"
+        fill="#fff"/>
+</svg>
